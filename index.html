@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>GlukoPrior — SPK Prioritas Penanganan Diabetes Melitus</title>
+<meta name="description" content="Sistem Pendukung Keputusan prioritas penanganan pasien Diabetes Melitus Tipe 2 dengan metode SAW & TOPSIS.">
+
+<!-- PWA -->
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0C2330">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/icons/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GlukoPrior">
+<meta name="mobile-web-app-capable" content="yes">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="brand">
+      <div class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5C12 2.5 5 9 5 14a7 7 0 0014 0c0-5-7-11.5-7-11.5z" fill="#fff"/><path d="M9 14.5c0 1.7 1.3 3 3 3" stroke="#0A5C4F" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div><b>GlukoPrior</b><span>SPK · Diabetes Melitus</span></div>
+    </div>
+    <div class="nav" id="nav">
+      <div class="nav-lbl">Utama</div>
+      <a data-pg="dash" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Dashboard</a>
+      <a data-pg="data"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Data Pasien</a>
+      <a data-pg="krit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Kriteria &amp; Bobot</a>
+      <div class="nav-lbl">Analisis</div>
+      <a data-pg="hasil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>Hasil Perankingan</a>
+      <a data-pg="banding"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 3v18M15 3v18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Bandingkan Metode</a>
+    </div>
+    <div class="side-foot">
+      <div class="ava">RS</div>
+      <div><b>Ns. Rini, S.Kep</b><span>Puskesmas Sehat Sentosa</span></div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- ============ DASHBOARD ============ -->
+    <section class="page on" id="pg-dash">
+      <div class="topbar">
+        <div>
+          <div class="eyebrow">Program Prolanis · Pengelolaan Penyakit Kronis</div>
+          <h1>Dashboard Prioritas Pasien</h1>
+          <p>Sistem pendukung keputusan untuk menentukan urutan prioritas penanganan intensif pasien Diabetes Melitus Tipe 2 menggunakan metode SAW &amp; TOPSIS.</p>
+        </div>
+        <button class="btn btn-primary" onclick="go('hasil')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>Lihat Perankingan</button>
+      </div>
+
+      <div class="stats" id="dashStats"></div>
+
+      <div class="card">
+        <div class="card-h">
+          <div><h3>Prioritas Teratas Saat Ini</h3><p>Diurutkan berdasarkan hasil metode TOPSIS</p></div>
+          <div class="legend">
+            <span><i class="pdot" style="background:var(--p1)"></i>Sangat Tinggi</span>
+            <span><i class="pdot" style="background:var(--p2)"></i>Tinggi</span>
+            <span><i class="pdot" style="background:var(--p3)"></i>Sedang</span>
+            <span><i class="pdot" style="background:var(--p4)"></i>Rendah</span>
+          </div>
+        </div>
+        <div class="card-b" style="padding:0">
+          <table class="tbl"><thead><tr>
+            <th style="width:46px">#</th><th>Pasien</th><th class="num">HbA1c</th>
+            <th class="num">Komplikasi</th><th>Tingkat Prioritas</th><th class="num">Skor TOPSIS</th>
+          </tr></thead><tbody id="dashRank"></tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DATA PASIEN ============ -->
+    <section class="page" id="pg-data">
+      <div class="topbar">
+        <div>
+          <div class="eyebrow">Matriks Keputusan · X</div>
+          <h1>Data Pasien &amp; Nilai Kriteria</h1>
+          <p>Ubah nilai pada tabel di bawah — seluruh perhitungan SAW &amp; TOPSIS akan diperbarui secara otomatis. Setiap baris adalah alternatif (Aᵢ), setiap kolom adalah kriteria (Cⱼ).</p>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-ghost" onclick="resetData()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 109-9 9 9 0 00-6.4 2.6L3 8"/><path d="M3 3v5h5"/></svg>Reset Contoh</button>
+          <button class="btn btn-primary" onclick="addPatient()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Tambah Pasien</button>
+        </div>
+      </div>
+
+      <div class="pill-note" style="margin-bottom:18px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <div><b>Konvensi prioritas:</b> nilai klinis yang lebih buruk = prioritas penanganan lebih tinggi. Karena itu HbA1c, gula darah, tekanan darah, dan komplikasi bersifat <b>benefit</b> (makin tinggi makin diprioritaskan), sedangkan <b>Kepatuhan</b> bersifat <b>cost</b> (pasien yang sudah patuh terkelola baik, prioritas lebih rendah).</div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><div><h3>Matriks Keputusan</h3><p>5 alternatif × 5 kriteria</p></div></div>
+        <div class="card-b" style="padding:0;overflow-x:auto">
+          <table class="tbl" id="dataTbl"></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KRITERIA ============ -->
+    <section class="page" id="pg-krit">
+      <div class="topbar">
+        <div>
+          <div class="eyebrow">Bobot Preferensi · W</div>
+          <h1>Kriteria, Bobot &amp; Sifat Atribut</h1>
+          <p>Atur bobot kepentingan setiap kriteria. Total bobot dinormalisasi otomatis ke 1,00. Sifat atribut menentukan arah optimasi: benefit dimaksimalkan, cost diminimalkan.</p>
+        </div>
+      </div>
+      <div class="grid2" style="grid-template-columns:1.4fr 1fr;align-items:start">
+        <div class="card">
+          <div class="card-h"><div><h3>Daftar Kriteria</h3><p>Geser bobot untuk menyesuaikan kepentingan</p></div>
+            <span class="tag b" id="wsum">Σ bobot = 1,00</span></div>
+          <div class="card-b" id="kritList" style="display:flex;flex-direction:column;gap:4px"></div>
+        </div>
+        <div class="card">
+          <div class="card-h"><div><h3>Komposisi Bobot</h3><p>Distribusi kepentingan kriteria</p></div></div>
+          <div class="card-b"><div id="donut"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HASIL ============ -->
+    <section class="page" id="pg-hasil">
+      <div class="topbar">
+        <div>
+          <div class="eyebrow">Langkah Penyelesaian MADM</div>
+          <h1>Hasil Perankingan</h1>
+          <p>Telusuri perhitungan langkah demi langkah untuk setiap metode, lengkap dengan matriks ternormalisasi, terbobot, solusi ideal, dan nilai preferensi akhir.</p>
+        </div>
+        <div class="mtabs" id="methodTabs">
+          <button class="mtab on" data-m="saw">Metode SAW</button>
+          <button class="mtab" data-m="topsis">Metode TOPSIS</button>
+        </div>
+      </div>
+
+      <div id="winnerBox" style="margin-bottom:20px"></div>
+      <div id="methodBody"></div>
+    </section>
+
+    <!-- ============ BANDINGKAN ============ -->
+    <section class="page" id="pg-banding">
+      <div class="topbar">
+        <div>
+          <div class="eyebrow">Validasi Keputusan</div>
+          <h1>Perbandingan SAW vs TOPSIS</h1>
+          <p>Kedua metode dapat menghasilkan urutan yang berbeda karena prinsip yang berbeda. Bandingkan ranking, lihat tingkat kesepakatan, dan pahami kapan harus memakai yang mana.</p>
+        </div>
+      </div>
+      <div id="compareBody"></div>
+    </section>
+
+  </main>
+</div>
+
+<script defer src="/assets/js/data.js"></script>
+<script defer src="/assets/js/engine.js"></script>
+<script defer src="/assets/js/icons.js"></script>
+<script defer src="/assets/js/render.js"></script>
+<script defer src="/assets/js/app.js"></script>
+</body>
+</html>

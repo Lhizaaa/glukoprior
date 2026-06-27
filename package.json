@@ -1,0 +1,11 @@
+{
+  "name": "glukoprior",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SPK prioritas penanganan pasien Diabetes Melitus Tipe 2 (SAW & TOPSIS) — PWA statis.",
+  "scripts": {
+    "dev": "npx serve -l 3000 .",
+    "start": "npx serve -l 3000 ."
+  },
+  "license": "MIT"
+}
