@@ -4,7 +4,7 @@
    - Google Fonts (CSS & file font)  -> stale-while-revalidate
    - Lainnya                          -> network-first, fallback ke cache
 */
-const VERSION = 'glukoprior-v1';
+const VERSION = 'glukoprior-v2';
 const SHELL_CACHE = `${VERSION}-shell`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 
@@ -49,12 +49,25 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(request.url);
 
-  // Navigasi halaman -> app shell (cache-first agar bisa offline)
+  // Navigasi halaman -> network-first (selalu ambil versi terbaru setelah deploy),
+  // fallback ke cache saat offline. Selalu kembalikan Response valid agar tidak ERR_FAILED.
   if (request.mode === 'navigate') {
     event.respondWith(
-      caches.match('/index.html').then((cached) =>
-        cached || fetch(request).catch(() => caches.match('/index.html'))
-      )
+      fetch(request)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(SHELL_CACHE).then((c) => c.put('/index.html', copy));
+          return res;
+        })
+        .catch(() =>
+          caches.match('/index.html').then((cached) =>
+            cached ||
+            new Response(
+              '<!doctype html><meta charset="utf-8"><title>Offline</title><h1>Offline</h1><p>Tidak ada koneksi dan halaman belum tersimpan.</p>',
+              { headers: { 'Content-Type': 'text/html; charset=utf-8' } }
+            )
+          )
+        )
     );
     return;
   }
