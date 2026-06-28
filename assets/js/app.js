@@ -23,7 +23,16 @@ renderData(); renderAll(false);
 
 /* ===================== PWA: SERVICE WORKER ===================== */
 if('serviceWorker' in navigator){
+  // Saat service worker baru mengambil alih, muat ulang sekali agar aset terbaru dipakai
+  let _swRefreshing=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+    if(_swRefreshing) return;
+    _swRefreshing=true;
+    window.location.reload();
+  });
   window.addEventListener('load',()=>{
-    navigator.serviceWorker.register('/sw.js').catch(err=>console.warn('SW registration failed:',err));
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg=>reg.update())
+      .catch(err=>console.warn('SW registration failed:',err));
   });
 }
