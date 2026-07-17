@@ -2,21 +2,21 @@
 function weights(){const s=CRIT.reduce((a,c)=>a+c.w,0)||1;return CRIT.map(c=>c.w/s);}
 function matrix(){return patients.map(p=>p.v.slice());}
 
-function computeSAW(){
-  const X=matrix(), W=weights(), n=patients.length, m=CRIT.length;
+function computeSAW(customW){
+  const X=matrix(), W=customW||weights(), n=patients.length, m=CRIT.length;
   const R=[];
   for(let i=0;i<n;i++){R.push([]);}
   for(let j=0;j<m;j++){
     const col=X.map(r=>r[j]); const mx=Math.max(...col), mn=Math.min(...col);
-    for(let i=0;i<n;i++) R[i][j]= CRIT[j].type==='benefit' ? X[i][j]/mx : mn/X[i][j];
+    for(let i=0;i<n;i++) R[i][j]= CRIT[j].type==='benefit' ? (mx?X[i][j]/mx:0) : (X[i][j]?mn/X[i][j]:0);
   }
   const V=R.map(r=>r.reduce((a,v,j)=>a+v*W[j],0));
   return {X,R,V,W};
 }
-function computeTOPSIS(){
-  const X=matrix(), W=weights(), n=patients.length, m=CRIT.length;
+function computeTOPSIS(customW){
+  const X=matrix(), W=customW||weights(), n=patients.length, m=CRIT.length;
   const denom=[];
-  for(let j=0;j<m;j++) denom[j]=Math.sqrt(X.reduce((a,r)=>a+r[j]*r[j],0));
+  for(let j=0;j<m;j++) denom[j]=Math.sqrt(X.reduce((a,r)=>a+r[j]*r[j],0))||1;
   const R=X.map(r=>r.map((v,j)=>v/denom[j]));
   const Y=R.map(r=>r.map((v,j)=>v*W[j]));
   const Ap=[],Am=[];
@@ -26,7 +26,7 @@ function computeTOPSIS(){
   }
   const Dp=Y.map(r=>Math.sqrt(r.reduce((a,v,j)=>a+(v-Ap[j])**2,0)));
   const Dm=Y.map(r=>Math.sqrt(r.reduce((a,v,j)=>a+(v-Am[j])**2,0)));
-  const V=Dp.map((_,i)=>Dm[i]/(Dp[i]+Dm[i]));
+  const V=Dp.map((_,i)=>(Dp[i]+Dm[i])? Dm[i]/(Dp[i]+Dm[i]) : 0);
   return {X,R,Y,Ap,Am,Dp,Dm,V,W};
 }
 function ranked(V){return V.map((v,i)=>({i,v})).sort((a,b)=>b.v-a.v);}
@@ -38,5 +38,11 @@ function priorityLevel(rankIndex,total){
   if(q<=0.7) return {lbl:'Sedang',col:'var(--p3)',soft:'var(--p3-soft)',k:'p3'};
   return {lbl:'Rendah',col:'var(--p4)',soft:'var(--p4-soft)',k:'p4'};
 }
+function passStatus(idx,r){
+  if(filterMode==='none') return null;
+  if(filterMode==='passing') return r.v>=passingValue;
+  return idx<quotaValue;
+}
 const f=(x,d=4)=>Number(x).toLocaleString('id-ID',{minimumFractionDigits:d,maximumFractionDigits:d});
 const f2=(x)=>Number(x).toLocaleString('id-ID',{maximumFractionDigits:2});
+const initials=n=>n.replace(/^(Ny\.|Tn\.)\s*/,'').split(' ').slice(0,2).map(x=>x[0]).join('');

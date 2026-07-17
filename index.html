@@ -20,172 +20,88 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/assets/css/style.css">
+<style>
+:root{
+  --bg:#EEF2F6;--surface:#fff;--ink:#15232E;--ink-2:#52677A;--ink-3:#8499A9;--line:#E1E8EF;
+  --teal:#0E7C6B;--teal-d:#0A5C4F;--teal-soft:#E2F2EE;--blue:#2E6BB0;--blue-soft:#E5EEF8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:
+  radial-gradient(circle at 15% 0%,#dfe8f0,transparent 45%),
+  radial-gradient(circle at 90% 100%,#e4eef0,transparent 45%),var(--bg);
+  color:var(--ink);min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  padding:64px 20px;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.02em}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:34px}
+.logo{width:46px;height:46px;border-radius:13px;background:linear-gradient(150deg,#13A38B,#0A5C4F);
+  display:grid;place-items:center;box-shadow:0 8px 20px rgba(19,163,139,.35)}
+.logo svg{width:25px;height:25px}
+.brand b{font-size:20px;font-weight:800;display:block}
+.brand span{font-size:12px;color:var(--ink-3);letter-spacing:.04em}
+.hero{text-align:center;max-width:560px;margin-bottom:44px}
+.hero .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.hero h1{font-size:30px;font-weight:800;margin-bottom:12px}
+.hero p{color:var(--ink-2);font-size:14.5px;line-height:1.6}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;max-width:680px}
+.rolecard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 24px;
+  text-decoration:none;color:var(--ink);box-shadow:0 1px 2px rgba(20,35,46,.04),0 10px 28px rgba(20,35,46,.06);
+  transition:.18s;display:flex;flex-direction:column;gap:14px}
+.rolecard:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(20,35,46,.12);border-color:var(--teal)}
+.rolecard .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center}
+.rolecard .ic svg{width:23px;height:23px}
+.rolecard.admin .ic{background:var(--teal-soft);color:var(--teal-d)}
+.rolecard.petugas .ic{background:var(--blue-soft);color:var(--blue)}
+.rolecard h3{font-size:16.5px;font-weight:800;margin-bottom:4px}
+.rolecard p{font-size:12.5px;color:var(--ink-2);line-height:1.55}
+.rolecard .go{margin-top:auto;font-size:12.5px;font-weight:700;color:var(--teal);display:flex;align-items:center;gap:6px}
+.rolecard.petugas .go{color:var(--blue)}
+.rolecard .go svg{width:14px;height:14px;transition:.18s}
+.rolecard:hover .go svg{transform:translateX(3px)}
+.foot{margin-top:40px;font-size:11.5px;color:var(--ink-3);text-align:center}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-<!-- MOBILE TOP APP BAR (hanya tampil di layar kecil) -->
-<header class="mtopbar">
-  <div class="mbrand">
+  <div class="brand">
     <div class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5C12 2.5 5 9 5 14a7 7 0 0014 0c0-5-7-11.5-7-11.5z" fill="#fff"/><path d="M9 14.5c0 1.7 1.3 3 3 3" stroke="#0A5C4F" stroke-width="1.5" stroke-linecap="round"/></svg></div>
     <div><b>GlukoPrior</b><span>SPK · Diabetes Melitus</span></div>
   </div>
-  <div class="ava">GP</div>
-</header>
 
-<div class="app">
-  <!-- SIDEBAR -->
-  <aside class="side">
-    <div class="brand">
-      <div class="logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5C12 2.5 5 9 5 14a7 7 0 0014 0c0-5-7-11.5-7-11.5z" fill="#fff"/><path d="M9 14.5c0 1.7 1.3 3 3 3" stroke="#0A5C4F" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <div><b>GlukoPrior</b><span>SPK · Diabetes Melitus</span></div>
-    </div>
-    <div class="nav" id="nav">
-      <div class="nav-lbl">Utama</div>
-      <a data-pg="dash" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Dashboard</a>
-      <a data-pg="data"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Data Pasien</a>
-      <a data-pg="krit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Kriteria &amp; Bobot</a>
-      <div class="nav-lbl">Analisis</div>
-      <a data-pg="hasil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>Hasil Perankingan</a>
-      <a data-pg="banding"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 3v18M15 3v18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>Bandingkan Metode</a>
-    </div>
-    <div class="side-foot">
-      <div class="ava">GP</div>
-      <div><b>GlukoPrior</b><span>Puskesmas Neural</span></div>
-    </div>
-  </aside>
+  <div class="hero">
+    <div class="eyebrow">Program Prolanis · Pengelolaan Penyakit Kronis</div>
+    <h1>Sistem Pendukung Keputusan Prioritas Penanganan Pasien</h1>
+    <p>Menentukan urutan prioritas penanganan intensif pasien Diabetes Melitus Tipe 2 menggunakan metode SAW &amp; TOPSIS. Pilih panel akses sesuai peran Anda untuk melanjutkan.</p>
+  </div>
 
-  <!-- MAIN -->
-  <main class="main">
-
-    <!-- ============ DASHBOARD ============ -->
-    <section class="page on" id="pg-dash">
-      <div class="topbar">
-        <div>
-          <div class="eyebrow">Program Prolanis · Pengelolaan Penyakit Kronis</div>
-          <h1>Dashboard Prioritas Pasien</h1>
-          <p>Sistem pendukung keputusan untuk menentukan urutan prioritas penanganan intensif pasien Diabetes Melitus Tipe 2 menggunakan metode SAW &amp; TOPSIS.</p>
-        </div>
-        <button class="btn btn-primary" onclick="go('hasil')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>Lihat Perankingan</button>
+  <div class="cards">
+    <a class="rolecard admin" href="/admin.html">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></div>
+      <div>
+        <h3>Masuk sebagai Admin</h3>
+        <p>Akses penuh: kelola data pasien, kriteria &amp; bobot, kunci sifat atribut, dan pantau seluruh riwayat perubahan.</p>
       </div>
-
-      <div class="stats" id="dashStats"></div>
-
-      <div class="card">
-        <div class="card-h">
-          <div><h3>Prioritas Teratas Saat Ini</h3><p>Diurutkan berdasarkan hasil metode TOPSIS</p></div>
-          <div class="legend">
-            <span><i class="pdot" style="background:var(--p1)"></i>Sangat Tinggi</span>
-            <span><i class="pdot" style="background:var(--p2)"></i>Tinggi</span>
-            <span><i class="pdot" style="background:var(--p3)"></i>Sedang</span>
-            <span><i class="pdot" style="background:var(--p4)"></i>Rendah</span>
-          </div>
-        </div>
-        <div class="card-b" style="padding:0;overflow-x:auto">
-          <table class="tbl"><thead><tr>
-            <th style="width:46px">#</th><th>Pasien</th><th class="num">HbA1c</th>
-            <th class="num">Komplikasi</th><th>Tingkat Prioritas</th><th class="num">Skor TOPSIS</th>
-          </tr></thead><tbody id="dashRank"></tbody></table>
-        </div>
+      <div class="go">Buka Panel Admin <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    </a>
+    <a class="rolecard petugas" href="/petugas.html">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+      <div>
+        <h3>Masuk sebagai Petugas</h3>
+        <p>Mode lihat saja: pantau dashboard, hasil perankingan, analisis sensitivitas, dan cetak laporan tanpa mengubah data.</p>
       </div>
-    </section>
+      <div class="go">Buka Panel Petugas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+    </a>
+  </div>
 
-    <!-- ============ DATA PASIEN ============ -->
-    <section class="page" id="pg-data">
-      <div class="topbar">
-        <div>
-          <div class="eyebrow">Matriks Keputusan · X</div>
-          <h1>Data Pasien &amp; Nilai Kriteria</h1>
-          <p>Ubah nilai pada tabel di bawah — seluruh perhitungan SAW &amp; TOPSIS akan diperbarui secara otomatis. Setiap baris adalah alternatif (Aᵢ), setiap kolom adalah kriteria (Cⱼ).</p>
-        </div>
-        <div style="display:flex;gap:10px">
-          <button class="btn btn-ghost" onclick="resetData()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 109-9 9 9 0 00-6.4 2.6L3 8"/><path d="M3 3v5h5"/></svg>Reset Contoh</button>
-          <button class="btn btn-primary" onclick="addPatient()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Tambah Pasien</button>
-        </div>
-      </div>
+  <div class="foot">Puskesmas Sehat Sentosa · Metode Simple Additive Weighting (SAW) &amp; TOPSIS</div>
 
-      <div class="pill-note" style="margin-bottom:18px">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-        <div><b>Konvensi prioritas:</b> nilai klinis yang lebih buruk = prioritas penanganan lebih tinggi. Karena itu HbA1c, gula darah, tekanan darah, dan komplikasi bersifat <b>benefit</b> (makin tinggi makin diprioritaskan), sedangkan <b>Kepatuhan</b> bersifat <b>cost</b> (pasien yang sudah patuh terkelola baik, prioritas lebih rendah).</div>
-      </div>
-
-      <div class="card">
-        <div class="card-h"><div><h3>Matriks Keputusan</h3><p>5 alternatif × 5 kriteria</p></div></div>
-        <div class="card-b" style="padding:0;overflow-x:auto">
-          <table class="tbl" id="dataTbl"></table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ KRITERIA ============ -->
-    <section class="page" id="pg-krit">
-      <div class="topbar">
-        <div>
-          <div class="eyebrow">Bobot Preferensi · W</div>
-          <h1>Kriteria, Bobot &amp; Sifat Atribut</h1>
-          <p>Atur bobot kepentingan setiap kriteria. Total bobot dinormalisasi otomatis ke 1,00. Sifat atribut menentukan arah optimasi: benefit dimaksimalkan, cost diminimalkan.</p>
-        </div>
-      </div>
-      <div class="grid2" style="grid-template-columns:1.4fr 1fr;align-items:start">
-        <div class="card">
-          <div class="card-h"><div><h3>Daftar Kriteria</h3><p>Geser bobot untuk menyesuaikan kepentingan</p></div>
-            <span class="tag b" id="wsum">Σ bobot = 1,00</span></div>
-          <div class="card-b" id="kritList" style="display:flex;flex-direction:column;gap:4px"></div>
-        </div>
-        <div class="card">
-          <div class="card-h"><div><h3>Komposisi Bobot</h3><p>Distribusi kepentingan kriteria</p></div></div>
-          <div class="card-b"><div id="donut"></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ HASIL ============ -->
-    <section class="page" id="pg-hasil">
-      <div class="topbar">
-        <div>
-          <div class="eyebrow">Langkah Penyelesaian MADM</div>
-          <h1>Hasil Perankingan</h1>
-          <p>Telusuri perhitungan langkah demi langkah untuk setiap metode, lengkap dengan matriks ternormalisasi, terbobot, solusi ideal, dan nilai preferensi akhir.</p>
-        </div>
-        <div class="mtabs" id="methodTabs">
-          <button class="mtab on" data-m="saw">Metode SAW</button>
-          <button class="mtab" data-m="topsis">Metode TOPSIS</button>
-        </div>
-      </div>
-
-      <div id="winnerBox" style="margin-bottom:20px"></div>
-      <div id="methodBody"></div>
-    </section>
-
-    <!-- ============ BANDINGKAN ============ -->
-    <section class="page" id="pg-banding">
-      <div class="topbar">
-        <div>
-          <div class="eyebrow">Validasi Keputusan</div>
-          <h1>Perbandingan SAW vs TOPSIS</h1>
-          <p>Kedua metode dapat menghasilkan urutan yang berbeda karena prinsip yang berbeda. Bandingkan ranking, lihat tingkat kesepakatan, dan pahami kapan harus memakai yang mana.</p>
-        </div>
-      </div>
-      <div id="compareBody"></div>
-    </section>
-
-  </main>
-</div>
-
-<!-- MOBILE BOTTOM NAV (hanya tampil di layar kecil) -->
-<nav class="mnav" id="mnav">
-  <button class="mnav-btn on" data-pg="dash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Beranda</button>
-  <button class="mnav-btn" data-pg="data"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Pasien</button>
-  <div class="mnav-fabwrap"><button class="mnav-fab" data-pg="hasil" title="Hasil Perankingan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></button></div>
-  <button class="mnav-btn" data-pg="krit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Bobot</button>
-  <button class="mnav-btn" data-pg="banding"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg>Banding</button>
-</nav>
-
-<script defer src="/assets/js/data.js"></script>
-<script defer src="/assets/js/engine.js"></script>
-<script defer src="/assets/js/icons.js"></script>
-<script defer src="/assets/js/render.js"></script>
-<script defer src="/assets/js/app.js"></script>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('/sw.js').catch(err=>console.warn('SW registration failed:',err));
+  });
+}
+</script>
 </body>
 </html>

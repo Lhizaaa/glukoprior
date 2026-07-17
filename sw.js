@@ -1,16 +1,20 @@
 /* GlukoPrior Service Worker
    Strategi:
-   - App shell (HTML/manifest/ikon)  -> cache-first dengan update di latar belakang
-   - Google Fonts (CSS & file font)  -> stale-while-revalidate
-   - Lainnya                          -> network-first, fallback ke cache
+   - Navigasi halaman              -> selalu ke jaringan (tidak diintersep SW),
+                                       agar redirect clean-URL server tidak memicu ERR_FAILED
+   - Aset internal (CSS/JS/ikon)   -> cache-first dengan update di latar belakang
+   - Google Fonts (CSS & file font)-> stale-while-revalidate
+   - Lainnya                        -> network-first, fallback ke cache
 */
-const VERSION = 'glukoprior-v2';
+const VERSION = 'glukoprior-v3';
 const SHELL_CACHE = `${VERSION}-shell`;
 const RUNTIME_CACHE = `${VERSION}-runtime`;
 
+/* Hanya aset yang di-serve 200 langsung (tanpa redirect clean-URL).
+   Halaman HTML sengaja TIDAK di-precache di sini karena sebagian server
+   dev (mis. `serve` dengan cleanUrls) me-redirect /*.html -> /* (301). */
 const APP_SHELL = [
   '/',
-  '/index.html',
   '/manifest.webmanifest',
   '/favicon.svg',
   '/assets/css/style.css',
@@ -28,7 +32,7 @@ const APP_SHELL = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(SHELL_CACHE)
-      .then((cache) => cache.addAll(APP_SHELL))
+      .then((cache) => Promise.allSettled(APP_SHELL.map((u) => cache.add(u))))
       .then(() => self.skipWaiting())
   );
 });
@@ -47,30 +51,12 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   if (request.method !== 'GET') return;
 
-  const url = new URL(request.url);
+  // Navigasi halaman -> biarkan browser menanganinya sendiri (ikuti redirect
+  // server dengan benar). SW TIDAK boleh mengembalikan response redirect untuk
+  // navigasi karena browser akan menolaknya (ERR_FAILED).
+  if (request.mode === 'navigate') return;
 
-  // Navigasi halaman -> network-first (selalu ambil versi terbaru setelah deploy),
-  // fallback ke cache saat offline. Selalu kembalikan Response valid agar tidak ERR_FAILED.
-  if (request.mode === 'navigate') {
-    event.respondWith(
-      fetch(request)
-        .then((res) => {
-          const copy = res.clone();
-          caches.open(SHELL_CACHE).then((c) => c.put('/index.html', copy));
-          return res;
-        })
-        .catch(() =>
-          caches.match('/index.html').then((cached) =>
-            cached ||
-            new Response(
-              '<!doctype html><meta charset="utf-8"><title>Offline</title><h1>Offline</h1><p>Tidak ada koneksi dan halaman belum tersimpan.</p>',
-              { headers: { 'Content-Type': 'text/html; charset=utf-8' } }
-            )
-          )
-        )
-    );
-    return;
-  }
+  const url = new URL(request.url);
 
   // Google Fonts -> stale-while-revalidate
   if (url.origin === 'https://fonts.googleapis.com' || url.origin === 'https://fonts.gstatic.com') {
@@ -83,8 +69,10 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       caches.match(request).then((cached) =>
         cached || fetch(request).then((res) => {
-          const copy = res.clone();
-          caches.open(RUNTIME_CACHE).then((c) => c.put(request, copy));
+          if (res && res.ok && !res.redirected) {
+            const copy = res.clone();
+            caches.open(RUNTIME_CACHE).then((c) => c.put(request, copy));
+          }
           return res;
         }).catch(() => cached)
       )
