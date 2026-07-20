@@ -171,4 +171,100 @@ input[type=text]{font-family:'Inter'}
 
 .editbtn{background:none;border:none;color:var(--ink-3);cursor:pointer;padding:5px;border-radius:6px;display:inline-flex}
 .editbtn:hover{background:var(--line-2);color:var(--p1)}
-@media(max-width:880px){.app{grid-template-columns:1fr}.side{display:none}.stats,.grid2{grid-template-columns:1fr 1fr}.main{padding:20px}}
+/* ============ MOBILE RESPONSIVE (bottom-nav shell, mengikuti prototype mobile) ============ */
+.mtopbar,.mbottomnav{display:none}
+
+@media(max-width:980px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .grid2{grid-template-columns:1fr !important}
+}
+
+@media(max-width:880px){
+  html,body{overflow-x:hidden}
+  .app{grid-template-columns:minmax(0,1fr)}
+  .side{display:none}
+  .main{padding:16px 15px calc(92px + env(safe-area-inset-bottom));max-width:100%;min-width:0}
+
+  /* --- mobile top app bar --- */
+  .mtopbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:40;
+    background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow);
+    padding:11px 15px;padding-top:calc(11px + env(safe-area-inset-top))}
+  .mtopbar .m-logo{width:34px;height:34px;border-radius:10px;flex-shrink:0;
+    background:linear-gradient(150deg,#13A38B,#0A5C4F);display:grid;place-items:center;
+    box-shadow:0 4px 12px rgba(19,163,139,.35)}
+  .mtopbar .m-logo svg{width:19px;height:19px}
+  .mtopbar .m-brand b{font-family:'Plus Jakarta Sans';font-size:15.5px;font-weight:800;display:block;letter-spacing:-.03em}
+  .mtopbar .m-brand span{font-size:10.5px;color:var(--ink-3)}
+  .mtopbar .m-ava{margin-left:auto;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+    color:#fff;font-weight:700;font-size:12.5px;font-family:'Plus Jakarta Sans';flex-shrink:0}
+  .mtopbar .m-back{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);
+    background:var(--surface-2);display:grid;place-items:center;color:var(--ink-2);flex-shrink:0;cursor:pointer}
+  .mtopbar .m-back svg{width:18px;height:18px}
+
+  /* --- topbar reflow --- */
+  .topbar{gap:13px}
+  .topbar>div:first-child{flex:1 1 100%}
+  .topbar h1{font-size:20px}
+  .topbar p{max-width:100%;font-size:12.5px}
+  .topbar>.btn{width:100%;justify-content:center}
+  .topbar>div:last-child:not(:first-child):not(.mtabs){flex:1 1 100%;display:flex;gap:10px}
+  .topbar>div:last-child:not(:first-child):not(.mtabs)>.btn{flex:1;justify-content:center}
+  .mtabs{flex:1 1 100%;display:flex}
+  .mtab{flex:1;text-align:center}
+
+  /* --- stats & grids --- */
+  .stats{grid-template-columns:repeat(2,1fr) !important;gap:12px}
+  .grid2{grid-template-columns:1fr !important}
+
+  /* --- gate panel --- */
+  .gate-panel{flex-direction:column;align-items:stretch;gap:10px}
+  .gate-panel>div{width:100%}
+  .gate-panel .seg2{display:flex;width:100%}
+  .gate-panel .seg2 button{flex:1;text-align:center}
+  .gate-panel select{width:100% !important}
+  .gate-panel .btn{margin-left:0 !important;width:100%;justify-content:center}
+
+  /* --- misc content --- */
+  .searchbar{max-width:100%}
+  .card-h{flex-wrap:wrap}
+  .winner-card{padding:16px;gap:12px}
+  .winner-card .v .big{font-size:24px}
+  #profilChart svg{max-width:100%;height:auto}
+  #sensBody .card-b{overflow-x:auto}
+  .sens-scroll{min-width:440px}
+
+  /* --- bottom navigation --- */
+  .mbottomnav{display:flex;justify-content:space-around;align-items:flex-start;
+    position:fixed;left:0;right:0;bottom:0;z-index:60;height:72px;padding-top:9px;
+    padding-bottom:env(safe-area-inset-bottom);
+    background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .mnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:none;
+    cursor:pointer;color:var(--ink-3);font-family:'Inter';font-size:9.5px;font-weight:600}
+  .mnav-btn svg{width:21px;height:21px}
+  .mnav-btn.on{color:var(--teal)}
+  .mfab-wrap{flex:1;position:relative}
+  .mfab{position:absolute;top:-24px;left:50%;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;
+    border:4px solid var(--bg);cursor:pointer;background:linear-gradient(150deg,#13A38B,#0A5C4F);
+    display:grid;place-items:center;box-shadow:0 10px 24px rgba(14,124,107,.45)}
+  .mfab svg{width:23px;height:23px;color:#fff}
+
+  /* --- "Lainnya" hub menu --- */
+  .mmenu-item{display:flex;align-items:center;gap:12px;padding:15px 16px;width:100%;text-align:left;cursor:pointer;
+    background:none;border:none;border-bottom:1px solid var(--line-2)}
+  .mmenu-item:last-child{border-bottom:none}
+  .mmenu-ic{width:38px;height:38px;border-radius:11px;background:var(--teal-soft);color:var(--teal-d);display:grid;place-items:center;flex-shrink:0}
+  .mmenu-ic svg{width:18px;height:18px}
+  .mmenu-item .mm-t b{font-size:13.5px;font-weight:700;display:block;font-family:'Plus Jakarta Sans'}
+  .mmenu-item .mm-t span{font-size:11.5px;color:var(--ink-3)}
+  .mmenu-item .mm-chev{margin-left:auto;color:var(--ink-3);display:flex}
+  .mmenu-item .mm-chev svg{width:17px;height:17px}
+}
+
+@media(max-width:440px){
+  .topbar h1{font-size:19px}
+  .card-b{padding:16px}
+  .card-h{padding:14px 16px}
+}
+@media(max-width:340px){
+  .stats{grid-template-columns:1fr !important}
+}

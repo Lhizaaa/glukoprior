@@ -454,7 +454,7 @@ function renderSensitif(){
   }).join('');
   document.getElementById('sensBody').innerHTML = `
     <div class="card"><div class="card-h"><div><h3>Simulasi Ranking — ${CRIT[j].code} · ${CRIT[j].name} diset ${pct}%</h3><p>Bobot kriteria lain diskalakan proporsional agar total tetap 1,00 · metode ${sensMethod.toUpperCase()}</p></div></div>
-     <div class="card-b">${bars}</div></div>
+     <div class="card-b"><div class="sens-scroll">${bars}</div></div></div>
     <div class="pill-note" style="margin-top:16px">
       ${iInfo}
       <div>Simulasi ini <b>tidak mengubah</b> bobot tersimpan di halaman Kriteria &amp; Bobot. Panah menunjukkan perubahan posisi ranking dibanding pengaturan bobot saat ini — gunakan untuk menguji seberapa stabil keputusan sebelum benar-benar mengubah bobot.</div>

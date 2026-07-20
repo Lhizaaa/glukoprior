@@ -22,8 +22,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:
 .mono{font-family:'IBM Plex Mono',monospace;font-feature-settings:"tnum"}
 h1,h2,h3,h4{font-family:'Plus Jakarta Sans';letter-spacing:-.02em;line-height:1.2}
 
-/* phone frame */
-.phone{width:392px;max-width:100%;height:820px;background:#0C2330;border-radius:46px;padding:11px;
+.phone{width:392px;max-width:100%;height:830px;background:#0C2330;border-radius:46px;padding:11px;
   box-shadow:0 40px 80px -20px rgba(12,35,48,.5),0 0 0 2px rgba(255,255,255,.04) inset;position:relative}
 .screen{width:100%;height:100%;background:var(--bg);border-radius:36px;overflow:hidden;position:relative;display:flex;flex-direction:column}
 .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:140px;height:26px;background:#0C2330;border-radius:0 0 18px 18px;z-index:60}
@@ -31,17 +30,15 @@ h1,h2,h3,h4{font-family:'Plus Jakarta Sans';letter-spacing:-.02em;line-height:1.
 .statusbar .ico{display:flex;gap:5px;align-items:center}
 .statusbar svg{width:15px;height:15px}
 
-/* app bar */
 .appbar{background:var(--surface);padding:6px 18px 14px;flex-shrink:0;border-bottom:1px solid var(--line-2);z-index:20}
-.appbar .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.appbar .row{display:flex;align-items:center;justify-content:space-between;gap:10px}
 .appbar .eyebrow{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--teal);margin-bottom:2px}
-.appbar h1{font-size:21px;font-weight:800}
+.appbar h1{font-size:20px;font-weight:800}
 .appbar .sub{font-size:11.5px;color:var(--ink-3);margin-top:3px}
-.iconbtn{width:38px;height:38px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-2);flex-shrink:0}
-.iconbtn svg{width:18px;height:18px}
+.iconbtn{width:36px;height:36px;border-radius:11px;background:var(--surface-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-2);flex-shrink:0}
+.iconbtn svg{width:17px;height:17px}
 .avatar{width:38px;height:38px;border-radius:12px;background:linear-gradient(150deg,#13A38B,#0A5C4F);display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px;font-family:'Plus Jakarta Sans';flex-shrink:0}
 
-/* body scroll */
 .body{flex:1;overflow-y:auto;padding:16px 16px 96px;scrollbar-width:none}
 .body::-webkit-scrollbar{display:none}
 .view{display:none;animation:fade .3s}
@@ -53,7 +50,6 @@ h1,h2,h3,h4{font-family:'Plus Jakarta Sans';letter-spacing:-.02em;line-height:1.
 .sec-h h3{font-size:14px;font-weight:700}
 .sec-h a{font-size:11.5px;color:var(--teal);font-weight:600;text-decoration:none}
 
-/* stat chips */
 .statgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
 .stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 6px 16px rgba(20,35,46,.04)}
 .stat .ic{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;margin-bottom:9px}
@@ -61,7 +57,6 @@ h1,h2,h3,h4{font-family:'Plus Jakarta Sans';letter-spacing:-.02em;line-height:1.
 .stat .v{font-family:'Plus Jakarta Sans';font-size:23px;font-weight:800;line-height:1;letter-spacing:-.03em}
 .stat .l{font-size:10.5px;color:var(--ink-2);margin-top:4px;line-height:1.35}
 
-/* patient row */
 .prow{display:flex;align-items:center;gap:12px;padding:13px 14px;border-bottom:1px solid var(--line-2)}
 .prow:last-child{border-bottom:none}
 .pav{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px;font-family:'Plus Jakarta Sans';flex-shrink:0}
@@ -73,7 +68,6 @@ h1,h2,h3,h4{font-family:'Plus Jakarta Sans';letter-spacing:-.02em;line-height:1.
 .pchip{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:7px;margin-top:3px}
 .pdot{width:7px;height:7px;border-radius:50%}
 
-/* winner */
 .winner{display:flex;align-items:center;gap:13px;padding:16px;border-radius:18px;color:#fff;
   background:linear-gradient(120deg,var(--teal),#0A5C4F);box-shadow:0 14px 30px rgba(10,92,79,.32)}
 .winner .pav{width:46px;height:46px;background:rgba(255,255,255,.18);font-size:16px}
@@ -82,13 +76,12 @@ h1,h2,h3,h4{font-family:'Plus Jakarta Sans';letter-spacing:-.02em;line-height:1.
 .winner .v{margin-left:auto;text-align:right}
 .winner .v .big{font-family:'Plus Jakarta Sans';font-size:26px;font-weight:800;line-height:1}
 .winner .v small{font-size:10px;opacity:.85}
+.winner .filtnote{font-size:10.5px;opacity:.9;margin-top:4px}
 
-/* segmented */
 .seg{display:flex;background:var(--surface-2);border:1px solid var(--line);border-radius:13px;padding:3px;gap:3px;margin-bottom:14px}
 .seg button{flex:1;font-family:'Inter';font-size:12.5px;font-weight:600;padding:9px;border:none;border-radius:10px;background:none;color:var(--ink-2)}
 .seg button.on{background:var(--surface);color:var(--teal-d);box-shadow:0 2px 8px rgba(20,35,46,.1)}
 
-/* edit list */
 .editrow{padding:13px 14px;border-bottom:1px solid var(--line-2)}
 .editrow:last-child{border-bottom:none}
 .editrow .top{display:flex;align-items:center;gap:11px;margin-bottom:11px}
@@ -96,14 +89,13 @@ h1,h2,h3,h4{font-family:'Plus Jakarta Sans';letter-spacing:-.02em;line-height:1.
 .fld label{font-size:10px;font-weight:600;color:var(--ink-3);display:block;margin-bottom:3px}
 .fld input{width:100%;font-family:'IBM Plex Mono';font-size:13px;border:1px solid var(--line);border-radius:9px;padding:8px;color:var(--ink);background:var(--surface-2)}
 .fld input:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 3px rgba(14,124,107,.1)}
+.fld input:disabled{background:var(--line-2);color:var(--ink-3)}
 
-/* formula card */
 .formula{background:var(--surface-2);border:1px dashed var(--line);border-radius:11px;padding:11px 13px;font-family:'IBM Plex Mono';font-size:11.5px;color:var(--ink);margin-bottom:11px;line-height:1.6}
 .formula .c{color:var(--teal);font-weight:600}
 .steplead{font-size:11.5px;font-weight:700;color:var(--ink);margin:4px 0 9px;display:flex;align-items:center;gap:8px}
 .steplead .n{width:20px;height:20px;border-radius:6px;background:var(--teal-soft);color:var(--teal-d);display:grid;place-items:center;font-family:'Plus Jakarta Sans';font-weight:800;font-size:11px}
 
-/* mini matrix */
 .mtbl{width:100%;border-collapse:collapse;font-size:11px}
 .mtbl th{font-size:9.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--ink-3);font-weight:600;padding:7px 5px;border-bottom:1px solid var(--line);text-align:right;background:var(--surface-2)}
 .mtbl th:first-child{text-align:left}
@@ -111,16 +103,63 @@ h1,h2,h3,h4{font-family:'Plus Jakarta Sans';letter-spacing:-.02em;line-height:1.
 .mtbl td:first-child{text-align:left;font-family:'Plus Jakarta Sans';font-weight:700;font-size:11.5px}
 .mtbl tr:last-child td{border-bottom:none}
 
-/* weight slider */
 .wrow{padding:13px 2px;border-bottom:1px solid var(--line-2)}
 .wrow:last-child{border-bottom:none}
-.wrow .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px}
+.wrow .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;gap:8px;flex-wrap:wrap}
 .tag{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:20px}
 .tag.b{background:var(--teal-soft);color:var(--teal-d)}.tag.c{background:var(--blue-soft);color:var(--blue)}
 input[type=range]{width:100%;accent-color:var(--teal);margin-top:4px}
+input[type=range]:disabled{opacity:.4}
 
 .note{display:flex;gap:9px;background:var(--p2-soft);border:1px solid #F0D9B5;border-radius:13px;padding:12px;font-size:11px;color:#7A5418;line-height:1.5;margin-bottom:14px}
 .note svg{width:16px;height:16px;flex-shrink:0;color:var(--p2);margin-top:1px}
+.note.blue{background:var(--blue-soft);border-color:#BFD6EE;color:#1E4A78}
+.note.blue svg{color:var(--blue)}
+
+.searchbar{display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:11px 13px;margin-bottom:14px}
+.searchbar svg{width:16px;height:16px;color:var(--ink-3);flex-shrink:0}
+.searchbar input{border:none;padding:0;font-family:'Inter';font-size:13px;background:none}
+.searchbar input:focus{box-shadow:none;outline:none}
+
+.filterchips{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.fchip{font-size:10.5px;font-weight:600;padding:6px 11px;border-radius:20px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2)}
+.fchip.on{background:var(--teal);border-color:var(--teal);color:#fff}
+
+.menuitem{display:flex;align-items:center;gap:12px;padding:15px 14px;border-bottom:1px solid var(--line-2)}
+.menuitem:last-child{border-bottom:none}
+.menuitem .mic{width:36px;height:36px;border-radius:11px;background:var(--teal-soft);color:var(--teal-d);display:grid;place-items:center;flex-shrink:0}
+.menuitem .mic svg{width:17px;height:17px}
+.menuitem b{font-size:13.5px;font-weight:600;display:block}
+.menuitem span{font-size:11px;color:var(--ink-3)}
+.menuitem .chev{margin-left:auto;color:var(--ink-3)}
+.menuitem .chev svg{width:16px;height:16px}
+
+.role-switch{display:flex;gap:4px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:3px;margin-bottom:6px}
+.role-switch button{flex:1;font-family:'Inter';font-size:12px;font-weight:600;padding:9px 4px;border:none;border-radius:9px;background:none;color:var(--ink-2)}
+.role-switch button.on{background:var(--teal);color:#fff}
+.role-note{font-size:10.5px;color:var(--ink-3);padding:2px 4px;margin-bottom:16px;line-height:1.5}
+
+.audit-item{display:flex;gap:11px;padding:12px 4px;border-bottom:1px solid var(--line-2)}
+.audit-item:last-child{border-bottom:none}
+.audit-ic{width:29px;height:29px;border-radius:9px;background:var(--teal-soft);color:var(--teal-d);display:grid;place-items:center;flex-shrink:0}
+.audit-ic svg{width:14px;height:14px}
+.audit-item .t{font-size:12px;color:var(--ink)}
+.audit-item .ts{font-size:10.5px;color:var(--ink-3);margin-top:2px}
+
+.gate-panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px;margin-bottom:14px}
+
+.editbtn{background:none;border:none;color:var(--p1);padding:6px;border-radius:8px}
+.editbtn svg{width:16px;height:16px;display:block}
+
+.scorebar{height:6px;background:var(--line-2);border-radius:6px;overflow:hidden;flex:1}
+.scorebar i{display:block;height:100%;border-radius:6px}
+
+.printable{display:none}
+@media print{
+  body *{visibility:hidden}
+  .printable,.printable *{visibility:visible}
+  .printable{display:block !important;position:absolute;top:0;left:0;width:100%;padding:20px}
+}
 
 /* bottom nav */
 .tabbar{position:absolute;bottom:0;left:0;right:0;height:74px;background:rgba(255,255,255,.92);
@@ -147,51 +186,60 @@ input[type=range]{width:100%;accent-color:var(--teal);margin-top:4px}
       </span>
     </div>
 
-    <!-- APP BAR -->
     <div class="appbar">
       <div class="row">
-        <div>
+        <button class="iconbtn" id="backBtn" style="display:none" onclick="mgo('more')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div style="flex:1;min-width:0">
           <div class="eyebrow" id="abEyebrow">Program Prolanis</div>
           <h1 id="abTitle">Prioritas Pasien</h1>
           <div class="sub" id="abSub">Diabetes Melitus Tipe 2</div>
         </div>
         <div class="avatar" id="abAvatar">RS</div>
       </div>
-      <div id="abExtra"></div>
     </div>
 
-    <!-- BODY -->
     <div class="body" id="body">
 
       <!-- DASHBOARD -->
       <div class="view on" id="v-dash">
         <div class="statgrid" id="mStats" style="margin-top:2px"></div>
         <div class="sec-h"><h3>Prioritas Teratas</h3><a onclick="mgo('hasil')">Lihat semua</a></div>
-        <div class="card" id="mDashRank"></div>
-        <div class="sec-h"><h3>Tingkat Prioritas</h3></div>
-        <div class="card" style="padding:13px 15px;display:flex;flex-wrap:wrap;gap:11px 16px">
-          <span style="font-size:11px;color:var(--ink-2);display:flex;align-items:center;gap:6px"><i class="pdot" style="background:var(--p1)"></i>Sangat Tinggi</span>
-          <span style="font-size:11px;color:var(--ink-2);display:flex;align-items:center;gap:6px"><i class="pdot" style="background:var(--p2)"></i>Tinggi</span>
-          <span style="font-size:11px;color:var(--ink-2);display:flex;align-items:center;gap:6px"><i class="pdot" style="background:var(--p3)"></i>Sedang</span>
-          <span style="font-size:11px;color:var(--ink-2);display:flex;align-items:center;gap:6px"><i class="pdot" style="background:var(--p4)"></i>Rendah</span>
+        <div class="filterchips" id="dashChips">
+          <button class="fchip on" data-fp="all" onclick="setDashFilterM('all')">Semua</button>
+          <button class="fchip" data-fp="p1" onclick="setDashFilterM('p1')">Sangat Tinggi</button>
+          <button class="fchip" data-fp="p2" onclick="setDashFilterM('p2')">Tinggi</button>
+          <button class="fchip" data-fp="p3" onclick="setDashFilterM('p3')">Sedang</button>
+          <button class="fchip" data-fp="p4" onclick="setDashFilterM('p4')">Rendah</button>
         </div>
+        <div class="card" id="mDashRank"></div>
       </div>
 
-      <!-- DATA -->
+      <!-- DATA PASIEN -->
       <div class="view" id="v-data">
-        <div class="note">
+        <div class="note blue" id="dataViewNoteM" style="display:none">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-          <div>Ubah nilai kriteria — ranking SAW &amp; TOPSIS dihitung ulang otomatis. C1–C4 benefit, C5 (kepatuhan) cost.</div>
+          <div><b>Mode Lihat Saja:</b> masuk sebagai Petugas — data hanya bisa diubah oleh Admin.</div>
+        </div>
+        <div class="searchbar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" placeholder="Cari nama atau ID pasien…" oninput="onSearchPasienM(this.value)">
         </div>
         <div class="card" id="mEdit"></div>
-        <button onclick="addPatientM()" style="width:100%;margin-top:13px;font-family:'Inter';font-size:13.5px;font-weight:600;border:none;border-radius:13px;padding:13px;background:var(--teal);color:#fff;box-shadow:0 6px 16px rgba(14,124,107,.3);display:flex;align-items:center;justify-content:center;gap:8px">
+        <button onclick="addPatientM()" id="addPatientBtnM" style="width:100%;margin-top:13px;font-family:'Inter';font-size:13.5px;font-weight:600;border:none;border-radius:13px;padding:13px;background:var(--teal);color:#fff;box-shadow:0 6px 16px rgba(14,124,107,.3);display:flex;align-items:center;justify-content:center;gap:8px">
           <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>Tambah Pasien
         </button>
       </div>
 
       <!-- KRITERIA -->
       <div class="view" id="v-krit">
+        <div class="note blue" id="kritViewNoteM" style="display:none">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <div><b>Mode Lihat Saja:</b> masuk sebagai Petugas — kriteria &amp; bobot hanya bisa diubah oleh Admin.</div>
+        </div>
         <div class="card" style="padding:6px 15px" id="mKrit"></div>
+        <button onclick="addCriterionM()" id="addCritBtnM" style="width:100%;margin-top:13px;font-family:'Inter';font-size:13.5px;font-weight:600;border:none;border-radius:13px;padding:13px;background:var(--teal);color:#fff;box-shadow:0 6px 16px rgba(14,124,107,.3);display:flex;align-items:center;justify-content:center;gap:8px">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>Tambah Kriteria
+        </button>
       </div>
 
       <!-- HASIL -->
@@ -200,8 +248,56 @@ input[type=range]{width:100%;accent-color:var(--teal);margin-top:4px}
           <button class="on" data-m="saw">SAW</button>
           <button data-m="topsis">TOPSIS</button>
         </div>
+        <div class="gate-panel">
+          <div class="seg" id="filterSegM" style="margin-bottom:10px">
+            <button class="on" data-fm="none" onclick="setFilterModeM('none')">Tanpa Filter</button>
+            <button data-fm="passing" onclick="setFilterModeM('passing')">Passing</button>
+            <button data-fm="quota" onclick="setFilterModeM('quota')">Kuota</button>
+          </div>
+          <div id="filterInputWrapM" style="display:none;gap:8px;align-items:center;margin-bottom:10px">
+            <span style="font-size:11px;font-weight:600;color:var(--ink-2)" id="filterLblM">Nilai minimum V</span>
+            <input type="number" step="0.01" id="filterValM" oninput="onFilterInputM(this.value)" style="width:90px;font-family:'IBM Plex Mono';font-size:12.5px;border:1px solid var(--line);border-radius:8px;padding:6px 8px">
+          </div>
+          <button onclick="printReportM()" style="width:100%;font-family:'Inter';font-size:12.5px;font-weight:600;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--surface);color:var(--ink);display:flex;align-items:center;justify-content:center;gap:7px">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>Cetak Laporan
+          </button>
+        </div>
         <div id="mWinner" style="margin-bottom:14px"></div>
         <div id="mSteps"></div>
+      </div>
+
+      <!-- MORE HUB -->
+      <div class="view" id="v-more">
+        <div class="card" style="padding:14px 15px;margin-bottom:16px">
+          <div style="font-size:11px;font-weight:600;color:var(--ink-2);margin-bottom:8px">Peran Pengguna (Demo)</div>
+          <div class="role-switch">
+            <button id="roleAdminBtnM" class="on" onclick="setRoleM('admin')">Admin</button>
+            <button id="rolePetugasBtnM" onclick="setRoleM('petugas')">Petugas</button>
+          </div>
+          <div class="role-note" style="margin-bottom:0" id="roleNoteM">Akses penuh: kelola pasien, kriteria &amp; bobot.</div>
+        </div>
+        <div class="card">
+          <div class="menuitem" onclick="mgo('banding')" style="cursor:pointer">
+            <div class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg></div>
+            <div><b>Bandingkan Metode</b><span>SAW vs TOPSIS</span></div>
+            <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+          </div>
+          <div class="menuitem" onclick="mgo('sensitif')" style="cursor:pointer">
+            <div class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+            <div><b>Analisis Sensitivitas</b><span>Uji ketahanan bobot</span></div>
+            <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+          </div>
+          <div class="menuitem" onclick="mgo('profil')" style="cursor:pointer">
+            <div class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12,3 20,9 17,19 7,19 4,9"/></svg></div>
+            <div><b>Perbandingan Profil</b><span>Radar antar pasien</span></div>
+            <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+          </div>
+          <div class="menuitem" onclick="mgo('riwayat')" style="cursor:pointer">
+            <div class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+            <div><b>Riwayat Perubahan</b><span>Jejak audit sistem</span></div>
+            <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+          </div>
+        </div>
       </div>
 
       <!-- BANDING -->
@@ -209,21 +305,52 @@ input[type=range]{width:100%;accent-color:var(--teal);margin-top:4px}
         <div id="mCompare"></div>
       </div>
 
+      <!-- SENSITIVITAS -->
+      <div class="view" id="v-sensitif">
+        <div class="gate-panel">
+          <div style="font-size:11px;font-weight:600;color:var(--ink-2);margin-bottom:6px">Kriteria diuji</div>
+          <select id="sensCritM" onchange="renderSensitifM()" style="width:100%;font-family:'IBM Plex Mono';font-size:12.5px;border:1px solid var(--line);border-radius:8px;padding:8px;margin-bottom:12px"></select>
+          <div style="font-size:11px;font-weight:600;color:var(--ink-2);margin-bottom:6px">Bobot simulasi: <b id="sensValLblM" class="mono" style="color:var(--teal-d)">30%</b></div>
+          <input type="range" id="sensSliderM" min="0" max="100" value="30" oninput="renderSensitifM()" style="margin-bottom:12px">
+          <div class="seg" id="sensMethodSegM" style="margin-bottom:0">
+            <button class="on" data-sm="saw" onclick="setSensMethodM('saw')">SAW</button>
+            <button data-sm="topsis" onclick="setSensMethodM('topsis')">TOPSIS</button>
+          </div>
+        </div>
+        <div id="sensBodyM"></div>
+      </div>
+
+      <!-- PROFIL RADAR -->
+      <div class="view" id="v-profil">
+        <div class="sec-h" style="margin-top:0"><h3>Pilih Pasien (maks. 3)</h3></div>
+        <div class="card" id="profilPickerM" style="margin-bottom:14px"></div>
+        <div class="card" style="padding:14px;display:flex;justify-content:center" id="profilChartM"></div>
+      </div>
+
+      <!-- RIWAYAT -->
+      <div class="view" id="v-riwayat">
+        <button onclick="clearLogM()" id="clearLogBtnM" style="width:100%;margin-bottom:14px;font-family:'Inter';font-size:12.5px;font-weight:600;border:1px solid var(--line);border-radius:11px;padding:10px;background:var(--surface);color:var(--ink);display:flex;align-items:center;justify-content:center;gap:7px">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6"/></svg>Hapus Riwayat
+        </button>
+        <div class="card" id="auditBodyM" style="padding:4px 15px"></div>
+      </div>
+
     </div>
 
-    <!-- BOTTOM NAV -->
     <div class="tabbar" id="tabbar">
       <button class="tab on" data-pg="dash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Beranda</button>
       <button class="tab" data-pg="data"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Pasien</button>
       <div style="flex:1;position:relative"><button class="fab" onclick="mgo('hasil')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></button></div>
       <button class="tab" data-pg="krit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Bobot</button>
-      <button class="tab" data-pg="banding"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg>Banding</button>
+      <button class="tab" data-pg="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>Lainnya</button>
     </div>
   </div>
 </div>
 
+<div class="printable" id="printReportM"></div>
+
 <script>
-/* ===== shared engine (identik dengan versi desktop) ===== */
+/* ===== shared model ===== */
 const DEFAULT_PATIENTS=[
   {id:'A1',name:'Ny. Siti Aminah',meta:'58 th · RM 0421',color:'#D64545',v:[7.8,160,140,2,3]},
   {id:'A2',name:'Tn. Budi Santoso',meta:'64 th · RM 0188',color:'#E08A2B',v:[10.2,220,160,3,2]},
@@ -231,26 +358,42 @@ const DEFAULT_PATIENTS=[
   {id:'A4',name:'Ny. Rina Hartati',meta:'61 th · RM 0307',color:'#2E6BB0',v:[9.8,200,145,4,3]},
   {id:'A5',name:'Tn. Joko Prasetyo',meta:'69 th · RM 0299',color:'#7A52B0',v:[11.5,250,155,2,1]},
 ];
-const CRIT=[
-  {code:'C1',name:'HbA1c',desc:'gula darah 3 bulan',unit:'%',w:0.30,type:'benefit'},
-  {code:'C2',name:'Gula Darah Puasa',desc:'GDP',unit:'mg/dL',w:0.20,type:'benefit'},
-  {code:'C3',name:'Tekanan Sistolik',desc:'komorbid hipertensi',unit:'mmHg',w:0.15,type:'benefit'},
-  {code:'C4',name:'Jumlah Komplikasi',desc:'retinopati, nefropati',unit:'kondisi',w:0.25,type:'benefit'},
-  {code:'C5',name:'Tingkat Kepatuhan',desc:'1 buruk … 5 patuh',unit:'skala',w:0.10,type:'cost'},
+const DEFAULT_CRIT=[
+  {code:'C1',name:'HbA1c',desc:'gula darah 3 bulan',unit:'%',w:0.30,type:'benefit',locked:true},
+  {code:'C2',name:'Gula Darah Puasa',desc:'GDP',unit:'mg/dL',w:0.20,type:'benefit',locked:true},
+  {code:'C3',name:'Tekanan Sistolik',desc:'komorbid hipertensi',unit:'mmHg',w:0.15,type:'benefit',locked:true},
+  {code:'C4',name:'Jumlah Komplikasi',desc:'retinopati, nefropati',unit:'kondisi',w:0.25,type:'benefit',locked:true},
+  {code:'C5',name:'Tingkat Kepatuhan',desc:'1 buruk … 5 patuh',unit:'skala',w:0.10,type:'cost',locked:true},
 ];
 let patients=JSON.parse(JSON.stringify(DEFAULT_PATIENTS));
+let CRIT=JSON.parse(JSON.stringify(DEFAULT_CRIT));
+const PALETTE=['#D64545','#E08A2B','#3E9D6E','#2E6BB0','#7A52B0','#0E7C6B','#C9A227','#B0527A','#527AB0','#5BA199'];
+
+/* ===== state ===== */
+let role='admin';
+let auditLog=[];
+let searchQuery='';
+let dashFilter='all';
+let method='saw';
+let filterMode='none', passingValue=0.5, quotaValue=3;
+let sensMethod='saw';
+let profilSelected=[];
+const isAdmin=()=>role==='admin';
+
+/* ===== engine ===== */
 const W=()=>{const s=CRIT.reduce((a,c)=>a+c.w,0)||1;return CRIT.map(c=>c.w/s)};
 const MX=()=>patients.map(p=>p.v.slice());
-function SAW(){const X=MX(),w=W(),n=patients.length,m=CRIT.length;const R=patients.map(()=>[]);
-  for(let j=0;j<m;j++){const c=X.map(r=>r[j]),mx=Math.max(...c),mn=Math.min(...c);for(let i=0;i<n;i++)R[i][j]=CRIT[j].type=='benefit'?X[i][j]/mx:mn/X[i][j];}
+function SAW(customW){const X=MX(),w=customW||W(),n=patients.length,m=CRIT.length;const R=patients.map(()=>[]);
+  for(let j=0;j<m;j++){const c=X.map(r=>r[j]),mx=Math.max(...c),mn=Math.min(...c);for(let i=0;i<n;i++)R[i][j]=CRIT[j].type=='benefit'?(mx?X[i][j]/mx:0):(X[i][j]?mn/X[i][j]:0);}
   return{R,V:R.map(r=>r.reduce((a,v,j)=>a+v*w[j],0)),w};}
-function TOPSIS(){const X=MX(),w=W(),m=CRIT.length;const d=[];for(let j=0;j<m;j++)d[j]=Math.sqrt(X.reduce((a,r)=>a+r[j]*r[j],0));
+function TOPSIS(customW){const X=MX(),w=customW||W(),m=CRIT.length;const d=[];for(let j=0;j<m;j++)d[j]=Math.sqrt(X.reduce((a,r)=>a+r[j]*r[j],0))||1;
   const R=X.map(r=>r.map((v,j)=>v/d[j])),Y=R.map(r=>r.map((v,j)=>v*w[j]));
   const Ap=[],Am=[];for(let j=0;j<m;j++){const c=Y.map(r=>r[j]),mx=Math.max(...c),mn=Math.min(...c);if(CRIT[j].type=='benefit'){Ap[j]=mx;Am[j]=mn}else{Ap[j]=mn;Am[j]=mx}}
   const Dp=Y.map(r=>Math.sqrt(r.reduce((a,v,j)=>a+(v-Ap[j])**2,0))),Dm=Y.map(r=>Math.sqrt(r.reduce((a,v,j)=>a+(v-Am[j])**2,0)));
-  return{R,Y,Ap,Am,Dp,Dm,V:Dp.map((_,i)=>Dm[i]/(Dp[i]+Dm[i])),w};}
+  return{R,Y,Ap,Am,Dp,Dm,V:Dp.map((_,i)=>(Dp[i]+Dm[i])?Dm[i]/(Dp[i]+Dm[i]):0),w};}
 const rank=V=>V.map((v,i)=>({i,v})).sort((a,b)=>b.v-a.v);
-function plevel(idx,t){const q=idx/Math.max(t-1,1);if(q<=.2)return{l:'Sangat Tinggi',c:'var(--p1)',s:'var(--p1-soft)'};if(q<=.45)return{l:'Tinggi',c:'var(--p2)',s:'var(--p2-soft)'};if(q<=.7)return{l:'Sedang',c:'var(--p3)',s:'var(--p3-soft)'};return{l:'Rendah',c:'var(--p4)',s:'var(--p4-soft)'};}
+function plevel(idx,t){const q=idx/Math.max(t-1,1);if(q<=.2)return{l:'Sangat Tinggi',c:'var(--p1)',s:'var(--p1-soft)',k:'p1'};if(q<=.45)return{l:'Tinggi',c:'var(--p2)',s:'var(--p2-soft)',k:'p2'};if(q<=.7)return{l:'Sedang',c:'var(--p3)',s:'var(--p3-soft)',k:'p3'};return{l:'Rendah',c:'var(--p4)',s:'var(--p4-soft)',k:'p4'};}
+function passStatusM(idx,r){if(filterMode==='none')return null;if(filterMode==='passing')return r.v>=passingValue;return idx<quotaValue;}
 const ini=n=>n.replace(/^(Ny\.|Tn\.)\s*/,'').split(' ').slice(0,2).map(x=>x[0]).join('');
 const f2=x=>Number(x).toLocaleString('id-ID',{maximumFractionDigits:2});
 const f4=x=>Number(x).toLocaleString('id-ID',{minimumFractionDigits:4,maximumFractionDigits:4});
@@ -259,72 +402,208 @@ const iU='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-widt
 const iA='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>';
 const iD='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2.7S5.5 9 5.5 14a6.5 6.5 0 0013 0C18.5 9 12 2.7 12 2.7z"/></svg>';
 const iC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.1V12a10 10 0 11-5.9-9.1"/><path d="M22 4L12 14l-3-3"/></svg>';
+const iTrashM='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6"/><path d="M10 11v6M14 11v6"/></svg>';
+const iClockM='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>';
+const lockIconM='<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right:3px;vertical-align:-1px"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>';
 
-/* ===== renders ===== */
+/* ===== focus preserve ===== */
+function withFocusPreservedM(fn){
+  const active=document.activeElement;
+  let fid=null,start=null,end=null,type=null;
+  if(active && active.tagName==='INPUT' && active.dataset && active.dataset.focusId){
+    fid=active.dataset.focusId; type=active.type;
+    if(type==='text'){try{start=active.selectionStart;end=active.selectionEnd;}catch(e){}}
+  }
+  fn();
+  if(fid){const el=document.querySelector(`[data-focus-id="${fid}"]`);if(el){el.focus();if(start!=null){try{el.setSelectionRange(start,end);}catch(e){}}}}
+}
+
+/* ===== audit ===== */
+function logActionM(text){
+  auditLog.unshift({t:new Date(),text,role});
+  if(auditLog.length>100)auditLog.pop();
+  const rp=document.getElementById('v-riwayat');
+  if(rp && rp.classList.contains('on')) renderRiwayatM();
+}
+function clearLogM(){if(!isAdmin())return;auditLog=[];renderRiwayatM();}
+
+/* ===== role ===== */
+function setRoleM(r){
+  role=r;
+  document.getElementById('roleAdminBtnM').classList.toggle('on',r==='admin');
+  document.getElementById('rolePetugasBtnM').classList.toggle('on',r==='petugas');
+  document.getElementById('roleNoteM').textContent = r==='admin' ? 'Akses penuh: kelola pasien, kriteria & bobot.' : 'Mode lihat saja: tidak dapat mengubah data.';
+  document.getElementById('abAvatar').textContent = r==='admin' ? 'RS' : 'AF';
+  // pergantian peran tidak dicatat di riwayat
+  renderAllM(true);
+}
+
+/* ===== dashboard ===== */
+function setDashFilterM(fp){dashFilter=fp;document.querySelectorAll('#dashChips .fchip').forEach(b=>b.classList.toggle('on',b.dataset.fp===fp));rDash();}
 function rDash(){
-  const t=TOPSIS(),rk=rank(t.V);
-  const urgent=rk.filter((r,i)=>i/(patients.length-1)<=.45).length;
-  const avgH=(patients.reduce((a,p)=>a+p.v[0],0)/patients.length).toFixed(1);
+  const t=TOPSIS(),rkAll=rank(t.V);
+  const withPL=rkAll.map((r,idx)=>({r,idx,pl:plevel(idx,patients.length)}));
+  const urgent=withPL.filter(x=>x.pl.k==='p1'||x.pl.k==='p2').length;
+  const avgH=patients.length?(patients.reduce((a,p)=>a+(p.v[0]||0),0)/patients.length).toFixed(1):'0.0';
   document.getElementById('mStats').innerHTML=`
    ${sc('var(--teal)','var(--teal-soft)',iU,patients.length,'Total pasien terdaftar')}
    ${sc('var(--p1)','var(--p1-soft)',iA,urgent,'Prioritas tinggi')}
    ${sc('var(--blue)','var(--blue-soft)',iD,avgH+'%','Rata-rata HbA1c')}
-   ${sc('var(--p4)','var(--p4-soft)',iC,rk[0].v.toFixed(2),'Skor tertinggi')}`;
-  document.getElementById('mDashRank').innerHTML=rk.map((r,idx)=>{const p=patients[r.i],pl=plevel(idx,patients.length);
+   ${sc('var(--p4)','var(--p4-soft)',iC,rkAll.length?rkAll[0].v.toFixed(2):'0.00','Skor tertinggi')}`;
+  const shown=withPL.filter(x=>dashFilter==='all'||x.pl.k===dashFilter);
+  document.getElementById('mDashRank').innerHTML = shown.length ? shown.map(({r,idx,pl})=>{const p=patients[r.i];
     return `<div class="prow"><span class="rank-badge" style="background:${pl.c}">${idx+1}</span>
       <div class="pav" style="background:${p.color}">${ini(p.name)}</div>
-      <div class="nm"><b>${p.name}</b><span>HbA1c ${f2(p.v[0])}% · ${p.v[3]} komplikasi</span></div>
-      <div class="sc"><div class="vv">${r.v.toFixed(3)}</div><span class="pchip" style="background:${pl.s};color:${pl.c}">${pl.l}</span></div></div>`;}).join('');
+      <div class="nm"><b>${p.name}</b><span>HbA1c ${f2(p.v[0])}% · ${p.v[3]!==undefined?p.v[3]:'—'} komplikasi</span></div>
+      <div class="sc"><div class="vv">${r.v.toFixed(3)}</div><span class="pchip" style="background:${pl.s};color:${pl.c}">${pl.l}</span></div></div>`;}).join('')
+    : `<div style="padding:26px;text-align:center;color:var(--ink-3);font-size:12.5px">Tidak ada pasien pada kategori ini.</div>`;
 }
 const sc=(c,s,ic,v,l)=>`<div class="stat"><div class="ic" style="background:${s};color:${c}">${ic}</div><div class="v">${v}</div><div class="l">${l}</div></div>`;
 
-const PALETTE=['#D64545','#E08A2B','#3E9D6E','#2E6BB0','#7A52B0','#0E7C6B','#C9A227','#B0527A','#527AB0','#5BA199'];
+/* ===== data pasien ===== */
+function onSearchPasienM(v){searchQuery=v;rData();}
 function rData(){
-  document.getElementById('mEdit').innerHTML=patients.map((p,i)=>`
+  document.getElementById('dataViewNoteM').style.display = isAdmin()?'none':'flex';
+  document.getElementById('addPatientBtnM').style.display = isAdmin()?'flex':'none';
+  const q=searchQuery.trim().toLowerCase();
+  const rows=patients.map((p,i)=>({p,i})).filter(({p})=>!q||p.name.toLowerCase().includes(q)||p.id.toLowerCase().includes(q));
+  document.getElementById('mEdit').innerHTML = rows.length ? rows.map(({p,i})=>`
    <div class="editrow"><div class="top">
      <div class="pav" style="width:34px;height:34px;font-size:12px;background:${p.color}">${ini(p.name)}</div>
-     <div class="nm" style="flex:1"><input type="text" value="${p.name}" oninput="editNameM(${i},this.value)" style="font-size:13px;font-weight:600;font-family:'Plus Jakarta Sans';border:1px solid var(--line);background:var(--surface-2);border-radius:8px;padding:5px 8px;width:100%;color:var(--ink)">
+     ${isAdmin() ? `<div class="nm" style="flex:1"><input type="text" value="${p.name}" data-focus-id="mpname-${i}" oninput="editM(${i},this.value)" onblur="finalizeNameM(${i})" style="font-size:13px;font-weight:600;font-family:'Plus Jakarta Sans';border:1px solid var(--line);background:var(--surface-2);border-radius:8px;padding:5px 8px;width:100%;color:var(--ink)">
        <span style="font-size:10px;color:var(--ink-3);padding-left:2px">${p.id} · ${p.meta}</span></div>
-     ${patients.length>1?`<button onclick="removePatientM(${i})" style="background:none;border:none;color:var(--p1);padding:6px;border-radius:8px" title="Hapus"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6"/><path d="M10 11v6M14 11v6"/></svg></button>`:''}</div>
+     ${patients.length>1?`<button onclick="removePatientM(${i})" class="editbtn" title="Hapus">${iTrashM}</button>`:''}`
+     : `<div class="nm" style="flex:1"><b style="font-size:13px">${p.name}</b><span style="font-size:10px;color:var(--ink-3)">${p.id} · ${p.meta}</span></div>`}
+     </div>
      <div class="grid">
        ${CRIT.map((c,j)=>`<div class="fld"><label>${c.code} · ${c.name} (${c.unit})</label>
-         <input type="number" step="0.1" value="${p.v[j]}" oninput="edit(${i},${j},this.value)"></div>`).join('')}
-     </div></div>`).join('');
+         ${isAdmin() ? `<input type="number" step="0.1" value="${p.v[j]}" data-focus-id="mpval-${i}-${j}" oninput="editValM(${i},${j},this.value)">` : `<input type="text" value="${f2(p.v[j])}" disabled>`}</div>`).join('')}
+     </div></div>`).join('') : `<div style="padding:26px;text-align:center;color:var(--ink-3);font-size:12.5px">Tidak ada pasien yang cocok.</div>`;
 }
-function edit(i,j,val){const v=parseFloat(val);if(!isNaN(v)){patients[i].v[j]=v;rDash();rHasil();rCompare();}}
-function editNameM(i,val){patients[i].name=val||'Pasien';rDash();rHasil();rCompare();}
+function editValM(i,j,val){const v=parseFloat(val);if(!isNaN(v)){patients[i].v[j]=v;withFocusPreservedM(()=>renderAllM(false));}}
+function editM(i,val){patients[i].name=val;withFocusPreservedM(()=>renderAllM(false));}
+function finalizeNameM(i){if(patients[i]&&(!patients[i].name||!patients[i].name.trim())){patients[i].name='Pasien';withFocusPreservedM(()=>renderAllM(false));}}
 function addPatientM(){
   const used=patients.map(p=>p.id);let k=1;while(used.includes('A'+k))k++;
-  patients.push({id:'A'+k,name:'Pasien Baru '+k,meta:'— th · RM ----',
-    color:PALETTE[patients.length%PALETTE.length],v:[8.0,170,140,1,3]});
-  rData();rDash();rHasil();rCompare();
+  patients.push({id:'A'+k,name:'Pasien Baru '+k,meta:'— th · RM ----',color:PALETTE[patients.length%PALETTE.length],v:CRIT.map(()=>5)});
+  logActionM(`Menambahkan pasien baru (A${k})`);
+  renderAllM(true);
   document.getElementById('abSub').textContent=`${patients.length} alternatif × ${CRIT.length} kriteria`;
-  setTimeout(()=>{const rows=document.querySelectorAll('#mEdit .editrow');const last=rows[rows.length-1];if(last){last.scrollIntoView({behavior:'smooth',block:'center'});const t=last.querySelector('input[type=text]');t.focus();t.select();}},120);
+  setTimeout(()=>{const rows=document.querySelectorAll('#mEdit .editrow');const last=rows[rows.length-1];if(last){last.scrollIntoView({behavior:'smooth',block:'center'});const t=last.querySelector('input[type=text]');if(t){t.focus();t.select();}}},120);
 }
-function removePatientM(i){patients.splice(i,1);rData();rDash();rHasil();rCompare();document.getElementById('abSub').textContent=`${patients.length} alternatif × ${CRIT.length} kriteria`;}
+function removePatientM(i){
+  const nm=patients[i].name;
+  patients.splice(i,1);
+  profilSelected=profilSelected.filter(x=>x!==i).map(x=>x>i?x-1:x);
+  logActionM(`Menghapus pasien "${nm}"`);
+  renderAllM(true);
+}
 
+/* ===== kriteria ===== */
 function rKrit(){
-  const w=W();const cols=['#0E7C6B','#2E6BB0','#E08A2B','#7A52B0','#D64545'];
+  const w=W();
+  document.getElementById('kritViewNoteM').style.display = isAdmin()?'none':'flex';
+  document.getElementById('addCritBtnM').style.display = isAdmin()?'flex':'none';
   document.getElementById('mKrit').innerHTML=CRIT.map((c,j)=>`
-   <div class="wrow"><div class="top">
-     <div style="display:flex;align-items:center;gap:8px"><span class="tag ${c.type=='benefit'?'b':'c'}">${c.code}</span>
-       <b style="font-size:13px;font-family:'Plus Jakarta Sans'">${c.name}</b></div>
-     <div class="mono" style="font-size:15px;font-weight:600;color:var(--teal-d)">${f2(w[j])}</div></div>
-     <div style="font-size:10.5px;color:var(--ink-3);margin-bottom:2px">${c.desc} · <span class="tag ${c.type=='benefit'?'b':'c'}">${c.type}</span></div>
-     <input type="range" min="1" max="30" value="${Math.round(c.w*100)}" oninput="setW(${j},this.value)">
+   <div class="wrow" style="${c.locked?'':'background:var(--p2-soft);border-radius:10px;padding:10px 8px;margin-bottom:6px'}"><div class="top">
+     <div style="display:flex;align-items:center;gap:8px;flex:1;min-width:0;flex-wrap:wrap">
+       <span class="tag ${c.type=='benefit'?'b':'c'}">${c.code}</span>
+       ${isAdmin() ? `<input type="text" value="${c.name}" data-focus-id="mcname-${j}" oninput="editCritNameM(${j},this.value)" onblur="finalizeCritNameM(${j})" style="font-size:12.5px;font-weight:600;font-family:'Plus Jakarta Sans';border:1px solid var(--line);border-radius:7px;padding:5px 7px;flex:1;min-width:70px">`
+                  : `<b style="font-size:13px;font-family:'Plus Jakarta Sans'">${c.name}</b>`}
+       ${isAdmin() && CRIT.length>2 ? `<button onclick="removeCriterionM(${j})" class="editbtn" title="Hapus">${iTrashM}</button>` : ''}
+     </div></div>
+     <div style="font-size:10.5px;color:var(--ink-3);margin-bottom:6px">
+       ${isAdmin() ? `<div style="display:flex;gap:6px;margin-top:4px;flex-wrap:wrap;align-items:center">
+           <input type="text" value="${c.desc}" data-focus-id="mcdesc-${j}" oninput="editCritDescM(${j},this.value)" placeholder="Deskripsi" style="font-family:Inter;font-size:10.5px;border:1px solid var(--line);border-radius:6px;padding:5px 7px;flex:1.4;min-width:90px">
+           <input type="text" value="${c.unit}" data-focus-id="mcunit-${j}" oninput="editCritUnitM(${j},this.value)" placeholder="Satuan" style="font-family:Inter;font-size:10.5px;border:1px solid var(--line);border-radius:6px;padding:5px 7px;flex:1;min-width:60px">
+           ${c.locked
+             ? `<span class="pchip" style="background:${c.type=='benefit'?'var(--teal-soft)':'var(--blue-soft)'};color:${c.type=='benefit'?'var(--teal-d)':'var(--blue)'};margin-top:0">${lockIconM}${c.type}</span>`
+             : `<select onchange="editCritTypeM(${j},this.value)" style="font-family:Inter;font-size:10.5px;border:1px solid var(--line);border-radius:6px;padding:5px 4px">
+                 <option value="benefit" ${c.type=='benefit'?'selected':''}>benefit</option>
+                 <option value="cost" ${c.type=='cost'?'selected':''}>cost</option>
+               </select>`}
+         </div>
+         ${!c.locked ? `<div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+             <span class="pchip" style="background:var(--p2-soft);color:var(--p2);margin-top:0">Belum dikunci</span>
+             <button onclick="lockCriterionTypeM(${j})" style="font-family:'Inter';font-size:11px;font-weight:600;border:none;border-radius:8px;padding:6px 11px;background:var(--teal);color:#fff;display:flex;align-items:center;gap:5px">${lockIconM}Kunci Sifat</button>
+           </div>` : ''}`
+         : `${c.desc} · ${c.unit} · <span class="tag ${c.type=='benefit'?'b':'c'}">${c.type}</span>`}
+     </div>
+     <div style="display:flex;align-items:center;gap:10px">
+       <input type="range" min="1" max="60" value="${Math.round(c.w*100)}" data-j="${j}" oninput="editWeightM(this)" onchange="logWeightFinalM(this)" ${isAdmin()?'':'disabled'} style="flex:1">
+       <div style="text-align:right;min-width:44px">
+         <div class="mono" id="mwval-${j}" style="font-size:15px;font-weight:600;color:var(--teal-d)">${f2(w[j])}</div>
+       </div>
+     </div>
    </div>`).join('');
+  populateSensSelectM();
 }
-function setW(j,v){CRIT[j].w=(+v)/100;rDash();rKrit();rHasil();rCompare();}
+function editWeightM(el){
+  CRIT[+el.dataset.j].w=(+el.value)/100;
+  const w=W();
+  const a=document.getElementById('mwval-'+el.dataset.j); if(a)a.textContent=f2(w[+el.dataset.j]);
+  rDash();rHasil();rCompare();
+  if(document.getElementById('v-sensitif').classList.contains('on')) renderSensitifM();
+  if(document.getElementById('v-profil').classList.contains('on')) renderProfilChartM();
+}
+function logWeightFinalM(el){logActionM(`Mengubah bobot ${CRIT[+el.dataset.j].code} menjadi ${el.value}%`);renderAllM(false);}
+function editCritNameM(j,val){CRIT[j].name=val;withFocusPreservedM(()=>renderAllM(false));}
+function finalizeCritNameM(j){if(CRIT[j]&&(!CRIT[j].name||!CRIT[j].name.trim())){CRIT[j].name='Kriteria';withFocusPreservedM(()=>renderAllM(false));}}
+function editCritDescM(j,val){CRIT[j].desc=val;withFocusPreservedM(()=>renderAllM(false));}
+function editCritUnitM(j,val){CRIT[j].unit=val;withFocusPreservedM(()=>renderAllM(false));}
+function editCritTypeM(j,val){
+  if(CRIT[j].locked) return;
+  CRIT[j].type=val;
+  renderAllM(false);
+}
+function lockCriterionTypeM(j){
+  CRIT[j].locked=true;
+  logActionM(`Mengunci sifat ${CRIT[j].code} sebagai ${CRIT[j].type}`);
+  renderAllM(false);
+}
+function addCriterionM(){
+  let k=1;while(CRIT.some(c=>c.code==='C'+k))k++;
+  CRIT.push({code:'C'+k,name:'Kriteria Baru',desc:'Deskripsi',unit:'unit',w:0.10,type:'benefit',locked:false});
+  patients.forEach(p=>p.v.push(5));
+  logActionM(`Menambahkan kriteria ${'C'+k} (menunggu penguncian sifat)`);
+  renderAllM(true);
+}
+function removeCriterionM(j){
+  if(CRIT.length<=2){alert('Minimal harus ada 2 kriteria.');return;}
+  const code=CRIT[j].code;
+  CRIT.splice(j,1);
+  patients.forEach(p=>p.v.splice(j,1));
+  logActionM(`Menghapus kriteria ${code}`);
+  renderAllM(true);
+}
 
-let method='saw';
+/* ===== hasil ===== */
+function setFilterModeM(m){
+  filterMode=m;
+  document.querySelectorAll('#filterSegM button').forEach(b=>b.classList.toggle('on',b.dataset.fm===m));
+  const wrap=document.getElementById('filterInputWrapM');
+  if(m==='none'){wrap.style.display='none';}
+  else{wrap.style.display='flex';
+    document.getElementById('filterLblM').textContent=m==='passing'?'Nilai minimum V':'Top N';
+    document.getElementById('filterValM').value=m==='passing'?passingValue:quotaValue;}
+  logActionM(`Mengatur filter hasil ke "${m==='none'?'Tanpa Filter':m==='passing'?'Passing Grade':'Kuota'}"`);
+  rHasil();
+}
+function onFilterInputM(val){const v=parseFloat(val);if(isNaN(v))return;if(filterMode==='passing')passingValue=v;else quotaValue=Math.max(1,Math.round(v));rHasil();}
 function rHasil(){
-  const d=method=='saw'?SAW():TOPSIS();const rk=rank(d.V);const w=patients[rk[0].i];
+  const d=method=='saw'?SAW():TOPSIS();const rk=rank(d.V);
+  if(!rk.length){document.getElementById('mWinner').innerHTML='';document.getElementById('mSteps').innerHTML='<div class="card" style="padding:20px;text-align:center;color:var(--ink-3);font-size:12.5px">Belum ada data pasien.</div>';return;}
+  const w=patients[rk[0].i];
+  let filtNote='';
+  if(filterMode!=='none'){const passCount=rk.filter((r,idx)=>passStatusM(idx,r)).length;
+    filtNote=`<div class="filtnote">${passCount} dari ${rk.length} lulus ${filterMode==='passing'?`(V≥${f2(passingValue)})`:`(top ${quotaValue})`}</div>`;}
   document.getElementById('mWinner').innerHTML=`<div class="winner">
     <div class="pav">${ini(w.name)}</div>
-    <div><b>#1 · ${w.name}</b><span>Prioritas penanganan utama</span></div>
+    <div><b>#1 · ${w.name}</b><span>Prioritas penanganan utama</span>${filtNote}</div>
     <div class="v"><div class="big">${rk[0].v.toFixed(2)}</div><small>nilai V</small></div></div>`;
   document.getElementById('mSteps').innerHTML=method=='saw'?sawHTML(d,rk):topHTML(d,rk);
 }
+function statusChipM(idx,r){if(filterMode==='none')return'';const p=passStatusM(idx,r);return `<span class="pchip" style="background:${p?'var(--p4-soft)':'var(--p1-soft)'};color:${p?'var(--p4)':'var(--p1)'};margin-left:6px">${p?'Lulus':'Tidak Lulus'}</span>`;}
 function miniMat(title,M,rl){return `<div class="card" style="padding:13px 14px;margin-bottom:12px">
   <div style="font-size:12px;font-weight:700;font-family:'Plus Jakarta Sans';margin-bottom:9px">${title}</div>
   <table class="mtbl"><thead><tr><th>Alt</th>${CRIT.map(c=>`<th>${c.code}</th>`).join('')}</tr></thead><tbody>
@@ -336,7 +615,7 @@ function sawHTML(d,rk){const rl=patients.map(p=>p.id);
   h+=miniMat('Matriks ternormalisasi (R)',d.R,rl);
   h+=`<div class="card" style="padding:14px;margin-bottom:12px"><div class="steplead"><span class="n">2</span>Perankingan</div>
     <div class="formula">V<sub>i</sub> = Σ ( w<sub>j</sub> · r<sub>ij</sub> )</div></div>`;
-  h+=rankList(rk,'V');return h;
+  h+=rankList(rk);return h;
 }
 function topHTML(d,rk){const rl=patients.map(p=>p.id);
   let h=`<div class="card" style="padding:14px;margin-bottom:12px"><div class="steplead"><span class="n">1</span>Normalisasi vektor</div>
@@ -348,17 +627,38 @@ function topHTML(d,rk){const rl=patients.map(p=>p.id);
     <tr><td style="color:var(--p1)">A⁻</td>${d.Am.map(v=>`<td style="color:var(--p1)">${f2(v)}</td>`).join('')}</tr></tbody></table></div>`;
   h+=`<div class="card" style="padding:14px;margin-bottom:12px"><div class="steplead"><span class="n">4-5</span>Jarak &amp; preferensi</div>
     <div class="formula">V<sub>i</sub> = D⁻ / (D⁺ + D⁻)</div></div>`;
-  h+=rankList(rk,'V');return h;
+  h+=rankList(rk);return h;
 }
-function rankList(rk,lbl){
+function rankList(rk){
   return `<div class="card">${rk.map((r,idx)=>{const p=patients[r.i],pl=plevel(idx,patients.length);
     return `<div class="prow"><span class="rank-badge" style="background:${pl.c}">${idx+1}</span>
       <div class="pav" style="width:34px;height:34px;font-size:12px;background:${p.color}">${ini(p.name)}</div>
-      <div class="nm"><b style="font-size:13px">${p.name}</b><span>${pl.l}</span></div>
+      <div class="nm"><b style="font-size:13px">${p.name}</b><span>${pl.l}${statusChipM(idx,r)}</span></div>
       <div class="sc"><div class="vv" style="color:var(--teal-d)">${r.v.toFixed(4)}</div></div></div>`;}).join('')}</div>`;
 }
+
+/* ===== cetak laporan ===== */
+function printReportM(){
+  const d=method=='saw'?SAW():TOPSIS();const rk=rank(d.V);
+  const rows=rk.map((r,idx)=>{const p=patients[r.i],pl=plevel(idx,patients.length);
+    const st=filterMode==='none'?'':`<td style="padding:6px;border:1px solid #E1E8EF">${passStatusM(idx,r)?'Lulus':'Tidak Lulus'}</td>`;
+    return `<tr><td style="padding:6px;border:1px solid #E1E8EF">${idx+1}</td><td style="padding:6px;border:1px solid #E1E8EF">${p.name}</td><td style="padding:6px;border:1px solid #E1E8EF;text-align:right">${r.v.toFixed(4)}</td><td style="padding:6px;border:1px solid #E1E8EF">${pl.l}</td>${st}</tr>`;}).join('');
+  document.getElementById('printReportM').innerHTML=`
+    <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:#15232E">
+      <b style="font-size:16px">GlukoPrior</b> — Laporan Prioritas Penanganan Pasien
+      <div style="font-size:10.5px;color:#52677A;margin:6px 0 14px;font-family:Inter">Dicetak ${new Date().toLocaleString('id-ID')} · Metode ${method.toUpperCase()}</div>
+      <table style="width:100%;border-collapse:collapse;font-size:11px;font-family:Inter">
+        <thead><tr style="background:#F6F9FB"><th style="padding:6px;border:1px solid #E1E8EF;text-align:left">#</th><th style="padding:6px;border:1px solid #E1E8EF;text-align:left">Nama</th><th style="padding:6px;border:1px solid #E1E8EF;text-align:right">V</th><th style="padding:6px;border:1px solid #E1E8EF;text-align:left">Prioritas</th>${filterMode!=='none'?'<th style="padding:6px;border:1px solid #E1E8EF;text-align:left">Status</th>':''}</tr></thead>
+        <tbody>${rows}</tbody></table>
+    </div>`;
+  logActionM(`Mencetak laporan (metode ${method.toUpperCase()})`);
+  window.print();
+}
+
+/* ===== compare ===== */
 function rCompare(){
   const s=SAW(),t=TOPSIS(),rs=rank(s.V),rt=rank(t.V);
+  if(!rs.length){document.getElementById('mCompare').innerHTML='<div class="card" style="padding:20px;text-align:center;color:var(--ink-3);font-size:12.5px">Belum ada data pasien.</div>';return;}
   const pS={},pT={};rs.forEach((r,i)=>pS[r.i]=i+1);rt.forEach((r,i)=>pT[r.i]=i+1);
   const sameTop=rs[0].i===rt[0].i;let agree=0;patients.forEach((_,i)=>{if(pS[i]==pT[i])agree++;});
   const rows=patients.map((p,i)=>({i,p,rs:pS[i],rt:pT[i],vs:s.V[i],vt:t.V[i]})).sort((a,b)=>a.rt-b.rt);
@@ -377,25 +677,123 @@ function rCompare(){
   document.getElementById('mCompare').innerHTML=h;
 }
 
+/* ===== sensitivitas ===== */
+function setSensMethodM(m){sensMethod=m;document.querySelectorAll('#sensMethodSegM button').forEach(b=>b.classList.toggle('on',b.dataset.sm===m));renderSensitifM();}
+function populateSensSelectM(){
+  const sel=document.getElementById('sensCritM');const prev=sel.value;
+  sel.innerHTML=CRIT.map((c,j)=>`<option value="${j}">${c.code} · ${c.name}</option>`).join('');
+  if(prev && +prev<CRIT.length) sel.value=prev;
+}
+function rescaledWeightsM(critIdx,newFrac){
+  const others=CRIT.map((c,j)=>j).filter(j=>j!==critIdx);
+  const otherSum=others.reduce((a,j)=>a+CRIT[j].w,0)||1;
+  const remaining=1-newFrac;
+  return CRIT.map((c,j)=>j===critIdx?newFrac:(c.w/otherSum)*remaining);
+}
+function renderSensitifM(){
+  const sel=document.getElementById('sensCritM');
+  if(!sel.options.length||!patients.length){document.getElementById('sensBodyM').innerHTML='<div class="card" style="padding:20px;text-align:center;color:var(--ink-3);font-size:12.5px">Belum ada data.</div>';return;}
+  const j=+sel.value||0;const pct=+document.getElementById('sensSliderM').value;
+  document.getElementById('sensValLblM').textContent=pct+'%';
+  const custW=rescaledWeightsM(j,pct/100);
+  const base=sensMethod=='saw'?SAW():TOPSIS();
+  const sim=sensMethod=='saw'?SAW(custW):TOPSIS(custW);
+  const rkBase=rank(base.V),rkSim=rank(sim.V);
+  const posBase={};rkBase.forEach((r,idx)=>posBase[r.i]=idx+1);
+  const maxV=Math.max(...sim.V,0.0001);
+  const bars=rkSim.map((r,idx)=>{const p=patients[r.i];const diff=posBase[r.i]-(idx+1);const wp=(r.v/maxV*100).toFixed(1);
+    return `<div style="display:flex;align-items:center;gap:9px;padding:8px 2px;border-bottom:1px solid var(--line-2)">
+      <span class="rank-badge" style="width:22px;height:22px;font-size:10.5px;background:${plevel(idx,patients.length).c}">${idx+1}</span>
+      <div class="pav" style="width:26px;height:26px;font-size:10px;background:${p.color}">${ini(p.name)}</div>
+      <div class="scorebar"><i style="width:${wp}%;background:${p.color}"></i></div>
+      <div style="text-align:right">${diff===0?'<span class="pchip" style="background:var(--p4-soft);color:var(--p4)">tetap</span>':`<span class="pchip" style="background:var(--p2-soft);color:var(--p2)">${diff>0?'▲':'▼'}${Math.abs(diff)}</span>`}</div>
+    </div>`;}).join('');
+  document.getElementById('sensBodyM').innerHTML=`
+    <div class="card" style="padding:14px;margin-bottom:12px">
+      <div style="font-size:12px;font-weight:700;font-family:'Plus Jakarta Sans';margin-bottom:9px">Simulasi ${CRIT[j].code} = ${pct}%</div>
+      ${bars}</div>
+    <div class="note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <div>Simulasi ini tidak mengubah bobot tersimpan — hanya untuk menguji stabilitas ranking.</div>
+    </div>`;
+}
+
+/* ===== profil radar ===== */
+function initProfilSelectionM(){profilSelected=patients.slice(0,Math.min(2,patients.length)).map((_,i)=>i);}
+function renderProfilPickerM(){
+  document.getElementById('profilPickerM').innerHTML = patients.length ? patients.map((p,i)=>{
+    const checked=profilSelected.includes(i);
+    return `<div class="prow" style="cursor:pointer;background:${checked?'var(--teal-soft)':'transparent'}" onclick="toggleProfilM(${i})">
+      <input type="checkbox" ${checked?'checked':''} onclick="event.stopPropagation();toggleProfilM(${i})" style="width:16px;height:16px">
+      <div class="pav" style="width:30px;height:30px;font-size:11px;background:${p.color}">${ini(p.name)}</div>
+      <div class="nm"><b style="font-size:12.5px">${p.name}</b></div></div>`;
+  }).join('') : '<div style="padding:20px;text-align:center;color:var(--ink-3);font-size:12.5px">Belum ada pasien.</div>';
+}
+function toggleProfilM(i){
+  if(profilSelected.includes(i)){profilSelected=profilSelected.filter(x=>x!==i);}
+  else{if(profilSelected.length>=3){alert('Maksimal 3 pasien untuk radar.');return;}profilSelected.push(i);}
+  renderProfilPickerM();renderProfilChartM();
+}
+function renderProfilChartM(){
+  const el=document.getElementById('profilChartM');
+  if(!patients.length){el.innerHTML='<div style="padding:30px;color:var(--ink-3);font-size:12px">Belum ada data.</div>';return;}
+  if(profilSelected.length===0){el.innerHTML='<div style="padding:30px;color:var(--ink-3);font-size:12px">Pilih minimal 1 pasien.</div>';return;}
+  const s=SAW();const m=CRIT.length;const cx=150,cy=150,R=105;
+  const angle=k=>-Math.PI/2+k*(2*Math.PI/m);
+  const axisLines=CRIT.map((c,k)=>{const a=angle(k);const x=cx+R*Math.cos(a),y=cy+R*Math.sin(a);return `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#E1E8EF" stroke-width="1"/>`;}).join('');
+  const rings=[0.33,0.66,1].map(fr=>{const pts=CRIT.map((c,k)=>{const a=angle(k);return `${cx+R*fr*Math.cos(a)},${cy+R*fr*Math.sin(a)}`;}).join(' ');return `<polygon points="${pts}" fill="none" stroke="#EDF2F6" stroke-width="1"/>`;}).join('');
+  const labels=CRIT.map((c,k)=>{const a=angle(k);const x=cx+(R+18)*Math.cos(a),y=cy+(R+18)*Math.sin(a);return `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-family="Inter" font-size="9.5" fill="#52677A">${c.code}</text>`;}).join('');
+  const polys=profilSelected.map(pi=>{const p=patients[pi];const pts=CRIT.map((c,k)=>{const val=Math.max(0,Math.min(1,s.R[pi][k]||0));const a=angle(k);return `${cx+R*val*Math.cos(a)},${cy+R*val*Math.sin(a)}`;}).join(' ');return `<polygon points="${pts}" fill="${p.color}29" stroke="${p.color}" stroke-width="2"/>`;}).join('');
+  const legend=profilSelected.map(pi=>{const p=patients[pi];return `<span style="display:inline-flex;align-items:center;gap:5px;font-size:10.5px;margin:0 8px 4px 0"><i style="width:9px;height:9px;border-radius:3px;background:${p.color};display:inline-block"></i>${p.name}</span>`;}).join('');
+  el.innerHTML=`<div style="text-align:center"><svg width="300" height="300" viewBox="0 0 300 300">${rings}${axisLines}${polys}${labels}</svg><div style="margin-top:2px">${legend}</div></div>`;
+}
+
+/* ===== riwayat ===== */
+function renderRiwayatM(){
+  document.getElementById('clearLogBtnM').style.display = isAdmin()?'flex':'none';
+  const el=document.getElementById('auditBodyM');
+  if(!auditLog.length){el.innerHTML='<div style="padding:26px;text-align:center;color:var(--ink-3);font-size:12.5px">Belum ada aktivitas.</div>';return;}
+  el.innerHTML=auditLog.map(a=>`<div class="audit-item"><div class="audit-ic">${iClockM}</div>
+    <div><div class="t">${a.text}</div><div class="ts">${a.t.toLocaleString('id-ID',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})} · ${a.role==='admin'?'Admin':'Petugas'}</div></div></div>`).join('');
+}
+
 /* ===== nav ===== */
 const BAR={dash:['Program Prolanis','Prioritas Pasien','Diabetes Melitus Tipe 2'],
-  data:['Matriks Keputusan','Data Pasien','5 alternatif × 5 kriteria'],
+  data:['Matriks Keputusan','Data Pasien',''],
   krit:['Bobot Preferensi','Kriteria & Bobot','Total bobot = 1,00'],
   hasil:['Langkah MADM','Hasil Perankingan','SAW & TOPSIS'],
-  banding:['Validasi Keputusan','SAW vs TOPSIS','Perbandingan metode']};
+  more:['Menu','Lainnya','Analisis & pengaturan lanjutan'],
+  banding:['Validasi Keputusan','SAW vs TOPSIS','Perbandingan metode'],
+  sensitif:['Uji Ketahanan','Analisis Sensitivitas','Simulasi perubahan bobot'],
+  profil:['Visualisasi','Perbandingan Profil','Radar antar pasien'],
+  riwayat:['Jejak Audit','Riwayat Perubahan','Aktivitas pengelolaan data']};
+const SUBPAGES=['banding','sensitif','profil','riwayat'];
 function mgo(pg){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
   document.getElementById('v-'+pg).classList.add('on');
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.pg===pg));
-  const b=BAR[pg];document.getElementById('abEyebrow').textContent=b[0];
+  const tabPg = SUBPAGES.includes(pg) ? 'more' : pg;
+  document.querySelectorAll('.tab[data-pg]').forEach(t=>t.classList.toggle('on',t.dataset.pg===tabPg));
+  document.getElementById('backBtn').style.display = SUBPAGES.includes(pg) ? 'grid' : 'none';
+  const b=BAR[pg];
+  document.getElementById('abEyebrow').textContent=b[0];
   document.getElementById('abTitle').textContent=b[1];
   document.getElementById('abSub').textContent = pg==='data' ? `${patients.length} alternatif × ${CRIT.length} kriteria` : b[2];
   document.getElementById('body').scrollTop=0;
+  if(pg==='riwayat') renderRiwayatM();
+  if(pg==='sensitif') renderSensitifM();
+  if(pg==='profil'){renderProfilPickerM();renderProfilChartM();}
 }
 document.querySelectorAll('.tab[data-pg]').forEach(t=>t.onclick=()=>mgo(t.dataset.pg));
 document.querySelectorAll('#mSeg button').forEach(b=>b.onclick=()=>{method=b.dataset.m;
   document.querySelectorAll('#mSeg button').forEach(x=>x.classList.toggle('on',x===b));rHasil();});
-rDash();rData();rKrit();rHasil();rCompare();
+
+function renderAllM(includeData=true){
+  rDash();rKrit();rHasil();rCompare();renderSensitifM();renderProfilPickerM();renderProfilChartM();renderRiwayatM();
+  if(includeData) rData();
+}
+initProfilSelectionM();
+rData();
+renderAllM(false);
 </script>
 </body>
 </html>

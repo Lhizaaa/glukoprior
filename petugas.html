@@ -25,6 +25,14 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+<!-- MOBILE TOP APP BAR (tampil di layar kecil) -->
+<header class="mtopbar">
+  <button class="m-back" id="mBack" style="display:none" onclick="go('more')" aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <div class="m-logo"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.5C12 2.5 5 9 5 14a7 7 0 0014 0c0-5-7-11.5-7-11.5z" fill="#fff"/><path d="M9 14.5c0 1.7 1.3 3 3 3" stroke="#0A5C4F" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+  <div class="m-brand"><b>GlukoPrior</b><span>Panel Petugas</span></div>
+  <div class="m-ava" style="background:#2E6BB0">AF</div>
+</header>
+
 <div class="app">
   <!-- SIDEBAR -->
   <aside class="side">
@@ -88,10 +96,10 @@
             <button class="fchip" data-fp="p3" onclick="setDashFilter('p3')">Sedang</button>
             <button class="fchip" data-fp="p4" onclick="setDashFilter('p4')">Rendah</button>
           </div></div>
-          <table class="tbl" style="margin-top:14px"><thead><tr>
+          <div style="overflow-x:auto"><table class="tbl" style="margin-top:14px"><thead><tr>
             <th style="width:46px">#</th><th>Pasien</th><th class="num">HbA1c</th>
             <th class="num">Komplikasi</th><th>Tingkat Prioritas</th><th class="num">Skor TOPSIS</th>
-          </tr></thead><tbody id="dashRank"></tbody></table>
+          </tr></thead><tbody id="dashRank"></tbody></table></div>
         </div>
       </div>
     </section>
@@ -262,8 +270,50 @@
       <div class="card"><div class="card-b" id="auditBody" style="padding:6px 20px"></div></div>
     </section>
 
+    <!-- ============ LAINNYA (hub mobile) ============ -->
+    <section class="page" id="pg-more">
+      <div class="topbar">
+        <div>
+          <div class="eyebrow">Menu</div>
+          <h1>Lainnya</h1>
+          <p>Analisis lanjutan dan riwayat perubahan sistem.</p>
+        </div>
+      </div>
+      <div class="card">
+        <button class="mmenu-item" onclick="go('banding')">
+          <div class="mmenu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg></div>
+          <div class="mm-t"><b>Bandingkan Metode</b><span>SAW vs TOPSIS</span></div>
+          <div class="mm-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+        </button>
+        <button class="mmenu-item" onclick="go('sensitif')">
+          <div class="mmenu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+          <div class="mm-t"><b>Analisis Sensitivitas</b><span>Uji ketahanan bobot</span></div>
+          <div class="mm-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+        </button>
+        <button class="mmenu-item" onclick="go('profil')">
+          <div class="mmenu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12,3 20,9 17,19 7,19 4,9"/></svg></div>
+          <div class="mm-t"><b>Perbandingan Profil</b><span>Radar antar pasien</span></div>
+          <div class="mm-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+        </button>
+        <button class="mmenu-item" onclick="go('riwayat')">
+          <div class="mmenu-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+          <div class="mm-t"><b>Riwayat Perubahan</b><span>Jejak audit sistem</span></div>
+          <div class="mm-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+        </button>
+      </div>
+    </section>
+
   </main>
 </div>
+
+<!-- MOBILE BOTTOM NAV (tampil di layar kecil) -->
+<nav class="mbottomnav" id="mbottomnav">
+  <button class="mnav-btn on" data-pg="dash"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Beranda</button>
+  <button class="mnav-btn" data-pg="data"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Pasien</button>
+  <div class="mfab-wrap"><button class="mfab" data-pg="hasil" aria-label="Hasil Perankingan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></button></div>
+  <button class="mnav-btn" data-pg="krit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Bobot</button>
+  <button class="mnav-btn" data-pg="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>Lainnya</button>
+</nav>
 
 <div id="printReport"></div>
 
