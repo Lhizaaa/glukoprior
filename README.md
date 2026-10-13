@@ -1,4 +1,4 @@
-# GlukoPrior — SPK Prioritas Penanganan Diabetes Melitus
+# GlukoPrior - Prioritas Penanganan Diabetes Melitus
 
 Aplikasi web **Sistem Pendukung Keputusan (SPK)** untuk menentukan urutan prioritas
 penanganan intensif pasien **Diabetes Melitus Tipe 2** menggunakan metode
@@ -20,7 +20,7 @@ utama (HP/desktop) dan tetap berjalan **offline** setelah dibuka sekali.
 
 ### 1. Layer 1
 Role : Frontend engineer
-Project : GlukoPrior - Sistem Pendukung Keputusan Prioritas Penanganan Diabetes Melitus
+Project : GlukoPrior - Prioritas Penanganan Diabetes Melitus
 
 Stack : Vanilla HTML + CSS
 
