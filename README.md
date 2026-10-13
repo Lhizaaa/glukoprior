@@ -16,6 +16,50 @@ utama (HP/desktop) dan tetap berjalan **offline** setelah dibuka sekali.
 - Perbandingan SAW vs TOPSIS
 - PWA: installable, offline-ready (service worker + manifest)
 
+## PRD (Product Requirements Document)
+
+### 1. Layer 1
+Role : Frontend engineer
+Project : GlukoPrior - Sistem Pendukung Keputusan Prioritas Penanganan Diabetes Melitus
+
+Stack : Vanilla HTML + CSS
+
+### 2. Layer 2
+Fitur :
+- a. CRUD pasien: menambah, mengedit, dan menghapus data pasien
+- b. CRUD kriteria: mengatur variabel keputusan seperti HbA1c, GDP, tekanan sistolik, komplikasi, dan kepatuhan
+- c. Perhitungan otomatis SAW dan TOPSIS saat data atau bobot berubah
+- d. Pengaturan bobot kriteria untuk menghitung prioritas penanganan pasien
+- e. Rasio tingkat prioritas pasien (tinggi, sedang, rendah) dalam dashboard
+- f. Alert visual: pasien dengan risiko tinggi ditandai dengan warna merah/berbeda agar mudah dibaca
+- g. Report/recap hasil perankingan pasien dan perbandingan metode SAW vs TOPSIS dalam dashboard
+
+### 3. Layer 3
+Constraint :
+- a. Web color :
+  - --bg: #EEF2F6;
+  - --surface: #FFFFFF;
+  - --teal: #0E7C6B;
+  - --teal-d: #0A5C4F;
+  - --blue: #2E6BB0;
+  - --p1: #D64545;
+  - --p2: #E08A2B;
+  - --p3: #C9A227;
+  - --p4: #3E9D6E;
+- b. Data pasien harus dapat diedit secara langsung dari antarmuka aplikasi
+- c. Setiap perubahan pada nilai pasien atau bobot kriteria harus menghitung ulang ranking secara real-time
+- d. Hasil keputusan harus dapat dijelaskan secara transparan melalui langkah perhitungan SAW dan TOPSIS
+- e. Aplikasi harus dapat digunakan dalam browser tanpa install dependency tambahan dan tetap ramah untuk PWA
+
+### 4. Layer 4 Iteration
+- [✓] Dashboard utama menampilkan ringkasan prioritas pasien
+- [✓] Halaman data pasien memungkinkan tambah, edit, dan hapus pasien
+- [✓] Pengaturan bobot kriteria dapat dilakukan melalui UI
+- [✓] Sistem menghitung hasil SAW dan TOPSIS secara otomatis
+- [✓] Peringkat pasien ditampilkan dengan tingkat prioritas yang jelas
+- [✓] Perbandingan SAW vs TOPSIS tersedia untuk validasi keputusan
+- [✓] Aplikasi dapat diakses sebagai PWA dan tetap berfungsi dengan desain responsif
+
 ## Struktur Proyek
 
 ```
